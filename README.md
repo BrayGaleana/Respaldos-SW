@@ -1,2 +1,2 @@
-# Respaldos-SW
-Respaldos de configuración de switches
+# Backup's de los SW en formato .txt
+!
