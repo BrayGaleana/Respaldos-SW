@@ -1,0 +1,148 @@
+SW02-MDF#show running-config
+config-file-header
+SW02-MDF
+v1.3.0.62 / R750_NIK_1_3_647_260
+CLI v1.0
+set system mode switch queues-mode 4
+
+file SSD indicator encrypted
+@
+ssd-control-start
+ssd config
+ssd file passphrase control unrestricted
+no ssd file integrity control
+ssd-control-end cb0a3fdb1f3a1af4e4430033719968c0
+!
+vlan database
+vlan 200-249
+exit
+voice vlan oui-table add 0001e3 Siemens_AG_phone________
+voice vlan oui-table add 00036b Cisco_phone_____________
+voice vlan oui-table add 00096e Avaya___________________
+voice vlan oui-table add 000fe2 H3C_Aolynk______________
+voice vlan oui-table add 0060b9 Philips_and_NEC_AG_phone
+voice vlan oui-table add 00d01e Pingtel_phone___________
+voice vlan oui-table add 00e075 Polycom/Veritel_phone___
+voice vlan oui-table add 00e0bb 3Com_phone______________
+no lldp run
+hostname SW02-MDF
+username cisco password encrypted 04834d0a6c8c3a4e4e7df302af622672bccd856d privilege 15
+ip ssh server
+ip telnet server
+!
+interface vlan 222
+ name BB_SW
+ ip address 192.168.222.21 255.255.255.0
+ no ip address dhcp
+!
+interface gigabitethernet1/1/1
+ switchport trunk allowed vlan add 200-214,216-249
+ switchport trunk native vlan 215
+ switchport default-vlan tagged
+!
+interface gigabitethernet1/1/2
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/3
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/4
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/5
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/6
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/7
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/8
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/9
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/10
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/11
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/12
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/13
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/14
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/15
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/16
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/17
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/18
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/19
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/20
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/21
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/22
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/23
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/24
+ switchport mode access
+ switchport access vlan 200
+!
+interface gigabitethernet1/1/25
+ switchport trunk allowed vlan add 200-221,223-249
+ switchport trunk native vlan 222
+ switchport default-vlan tagged
+!
+interface gigabitethernet1/1/26
+ switchport trunk allowed vlan add 200-221,223-249
+ switchport trunk native vlan 222
+ switchport default-vlan tagged
+!
+exit
+ip default-gateway 192.168.222.253
+SW02-MDF#
+
