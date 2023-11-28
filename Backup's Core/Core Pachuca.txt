@@ -1,0 +1,1129 @@
+FGT-PACHUCA # execute telnet 192.168.80.253
+Trying 192.168.80.253...
+Connected to 192.168.80.253.
+
+
+User Access Verification
+
+Password:
+CORE_PACHUCA>enable
+Password:
+CORE_PACHUCA#show ru
+CORE_PACHUCA#show running-config
+Building configuration...
+
+Current configuration : 27853 bytes
+!
+! Last configuration change at 15:18:42 MX Sun Aug 13 2023
+!
+version 15.0
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+service compress-config
+!
+hostname CORE_PACHUCA
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-vrf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+enable secret 5 $1$SEJ/$zak1BTwatslQVj7WHkzRh0
+enable password 7 131712011E09083C2E757A60
+!
+no aaa new-model
+clock timezone MX -6 0
+switch 1 provision ws-c3650-48ts
+ip routing
+!
+ip name-server 8.8.8.8
+ip name-server 192.168.80.254
+ip device tracking
+!
+ip dhcp pool VTAS_RTD
+ import all
+ network 192.168.60.0 255.255.255.0
+ default-router 192.168.60.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+ lease 3
+!
+ip dhcp pool VTAS_ENCONTA
+ import all
+ network 192.168.61.0 255.255.255.0
+ default-router 192.168.61.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+ lease 3
+!
+ip dhcp pool VTAS_CHECK
+ import all
+ network 192.168.62.0 255.255.255.0
+ default-router 192.168.62.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+ lease 3
+!
+ip dhcp pool NEGOCIACION
+ import all
+ network 192.168.63.0 255.255.255.0
+ default-router 192.168.63.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+ lease 3
+!
+ip dhcp pool SERVICIO_A_CLIENTES
+ import all
+ network 192.168.64.0 255.255.255.0
+ default-router 192.168.64.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+ lease 3
+!
+ip dhcp pool ENCONTA_CONTADORES
+ import all
+ network 192.168.65.0 255.255.255.0
+ default-router 192.168.65.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+ lease 3
+!
+ip dhcp pool TALENTO
+ import all
+ network 192.168.66.0 255.255.255.0
+ default-router 192.168.66.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+ lease 3
+!
+ip dhcp pool INGENIERIA
+ import all
+ network 192.168.67.0 255.255.255.0
+ default-router 192.168.67.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+ lease 3
+!
+ip dhcp pool WIFI_RESUELVE
+ import all
+ network 192.168.68.0 255.255.255.0
+ default-router 192.168.68.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+!
+ip dhcp pool WIFI_ING
+ import all
+ network 192.168.69.0 255.255.255.0
+ default-router 192.168.69.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+!
+ip dhcp pool WIFI_DIR
+ import all
+ network 192.168.70.0 255.255.255.0
+ default-router 192.168.70.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+!
+ip dhcp pool WIFI_SC_MOVILES
+ import all
+ network 192.168.71.0 255.255.255.0
+ default-router 192.168.71.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+!
+ip dhcp pool WIFI_INVITADOS
+ import all
+ network 192.168.72.0 255.255.255.0
+ default-router 192.168.72.254
+ dns-server 192.168.80.254 8.8.8.8
+!
+ip dhcp pool AP'S_IMPRESORAS
+ import all
+ network 192.168.79.0 255.255.255.0
+ default-router 192.168.79.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+!
+ip dhcp pool SALAS
+ import all
+ network 192.168.77.0 255.255.255.0
+ default-router 192.168.77.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+!
+ip dhcp pool Javier_Velazquez_LAPTOP
+ host 192.168.70.1 255.255.255.0
+ client-identifier 01a0.afbd.6baf.53
+ client-name JavierVelazquezLAPTOP
+!
+ip dhcp pool Javier_Velazquez_MOVIL
+ host 192.168.70.2 255.255.255.0
+ client-identifier 0188.6b6e.51ac.7a
+ client-name JavierVelazquezMOVIL
+!
+ip dhcp pool Juan_Pablo_LAPTOP
+ host 192.168.70.3 255.255.255.0
+ client-identifier 01c4.838f.f51d.bb
+ client-name JuanPabloLAPTOP
+!
+ip dhcp pool Juan_Pablo_MOVIL
+ host 192.168.70.4 255.255.255.0
+ client-identifier 0164.7033.d667.9b
+ client-name JuanPabloMOVIL
+!
+ip dhcp pool Cristina_Cervantes_LAPTOP
+ host 192.168.70.5 255.255.255.0
+ client-identifier 0158.00e3.df5a.7b
+ client-name CristinaCervantesLAPTOP
+!
+ip dhcp pool Cristina_Cervantes_MOVIL
+ host 192.168.70.6 255.255.255.0
+ client-identifier 0188.1908.85d2.0f
+ client-name CristinaCervantesMOVIL
+!
+ip dhcp pool Ricardo_Gonzalez_LAPTOP
+ host 192.168.70.7 255.255.255.0
+ client-identifier 01a4.02b9.2bba.c9
+ client-name RicardoGonzalezLAPTOP
+!
+ip dhcp pool Ricardo_Gonzalez_MOVIL
+ host 192.168.70.8 255.255.255.0
+ client-identifier 01a8.667f.583d.b3
+ client-name RicardoGonzalezMOVIL
+!
+ip dhcp pool Daniel_Martinez_MOVIL
+ host 192.168.70.10 255.255.255.0
+ client-identifier 0170.14a6.a505.b8
+ client-name DanielMartinezMOVIL
+!
+ip dhcp pool Javier_Salmeron_LAPTOP
+ host 192.168.70.13 255.255.255.0
+ client-identifier 0144.032c.dde4.65
+ client-name JavierSalmeronLAPTOP
+!
+ip dhcp pool Javier_Salmeron_MOVIL
+ host 192.168.70.14 255.255.255.0
+ client-identifier 01a8.0c63.ed1f.9d
+ client-name JavierSalmeronMOVIL
+!
+ip dhcp pool Diego_Pailles_LAPTOP
+ host 192.168.70.15 255.255.255.0
+ client-identifier 0144.032c.d7ed.b7
+ client-name DiegoPaillesLAPTOP
+!
+ip dhcp pool Diego_Pailles_MOVIL
+ host 192.168.70.16 255.255.255.0
+ client-identifier 0170.3eac.c6e0.97
+ client-name DiegoPaillesMOVIL
+!
+ip dhcp pool Ricardo_Camarena_LAPTOP
+ host 192.168.70.19 255.255.255.0
+ client-identifier 019c.b6d0.9070.3b
+ client-name RicardoCamarenaLAPTOP
+!
+ip dhcp pool Ricardo_Camarena_MOVIL
+ host 192.168.70.20 255.255.255.0
+ client-identifier 0140.9c28.d7d9.06
+ client-name RicardoCamarenaMOVIL
+!
+ip dhcp pool Roberto_Sanchez_MACBOOK
+ host 192.168.70.21 255.255.255.0
+ client-identifier 0188.e9fe.6764.ce
+ client-name RobertoSanchezMACBOOOK
+!
+ip dhcp pool Roberto_Sanchez_MOVIL
+ host 192.168.70.22 255.255.255.0
+ client-identifier 01b4.f7a1.bffa.db
+ client-name RobertoSanchezMOVIL
+!
+ip dhcp pool Amat_Catalan_LAPTOP
+ host 192.168.70.23 255.255.255.0
+ client-identifier 0164.8099.f0c0.49
+ client-name AmatCatalanLAPTOP
+!
+ip dhcp pool Amat_Catalan_MOVIL
+ host 192.168.70.24 255.255.255.0
+ client-identifier 01c0.d012.b034.81
+ client-name AmatCatalanMOVIL
+!
+ip dhcp pool Rodrigo_Nadal_LAPTOP
+ host 192.168.70.29 255.255.255.0
+ client-identifier 0188.b111.76ab.bf
+ client-name RodrigoNadalLAPTOP
+!
+ip dhcp pool Rodrigo_Nadal_MOVIL
+ host 192.168.70.30 255.255.255.0
+ client-identifier 0188.6b6e.3734.65
+ client-name RodrigoNadalMOVIL
+!
+ip dhcp pool Daniel_Martinez_LAPTOP
+ host 192.168.70.9 255.255.255.0
+ client-identifier 0118.6590.d471.f5
+ client-name DanielMartinezLAPTOP
+!
+ip dhcp pool JC_Ballesteros_LAPTOP
+ host 192.168.70.25 255.255.255.0
+ client-identifier 0164.8099.d5cd.ca
+ client-name JCBallesterosLAPTOP
+!
+ip dhcp pool JC_Ballesteros_MOVIL
+ host 192.168.70.26 255.255.255.0
+ client-identifier 0178.31c1.0500.63
+ client-name JCBallesterosMOVIL
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_1
+ host 192.168.71.12 255.255.255.0
+ hardware-address d077.14d0.8c18
+ client-name MOVIL_NEGOCIACIONMX_1
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_2
+ host 192.168.71.13 255.255.255.0
+ client-identifier 012c.cc15.e36e.6c
+ client-name MOVIL_NEGOCIACIONMX_2
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_3
+ host 192.168.71.14 255.255.255.0
+ client-identifier 0154.40ad.1938.f3
+ client-name MOVIL_NEGOCIACIONMX_3
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_4
+ host 192.168.71.15 255.255.255.0
+ hardware-address 344d.f783.0494
+ client-name MOVIL_NEGOCIACIONMX_4
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_5
+ host 192.168.71.16 255.255.255.0
+ hardware-address d004.01e5.9ea3
+ client-name MOVIL_NEGOCIACIONMX_5
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_6
+ host 192.168.71.17 255.255.255.0
+ client-identifier 01a8.9675.0497.0e
+ client-name MOVIL_NEGOCIACIONMX_6
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_7
+ host 192.168.71.18 255.255.255.0
+ hardware-address d83c.6997.2ae3
+ client-name MOVIL_NEGOCIACIONMX_7
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_8
+ host 192.168.71.19 255.255.255.0
+ hardware-address a896.7504.1ffb
+ client-name MOVIL_NEGOCIACIONMX_8
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_9
+ host 192.168.71.20 255.255.255.0
+ hardware-address d83c.6997.2acd
+ client-name MOVIL_NEGOCIACIONMX_9
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_10
+ host 192.168.71.21 255.255.255.0
+ hardware-address ec1d.7fbe.6999
+ client-name MOVIL_NEGOCIACIONMX_10
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_11
+ host 192.168.71.22 255.255.255.0
+ hardware-address d83c.6997.2a8a
+ client-name MOVIL_NEGOCIACIONMX_11
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_12
+ host 192.168.71.23 255.255.255.0
+ hardware-address d83c.6997.2a8d
+ client-name MOVIL_NEGOCIACIONMX_12
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_13
+ host 192.168.71.24 255.255.255.0
+ client-identifier 01ac.3743.6018.db
+ client-name MOVIL_NEGOCIACIONMX_13
+!
+ip dhcp pool MOVIL_SERVICIOMX_2
+ host 192.168.71.26 255.255.255.0
+ client-identifier 01a8.1682.607c.37
+ client-name MOVIL_SERVICIOMX_2
+!
+ip dhcp pool MOVIL_SERVICIOMX_3
+ host 192.168.71.27 255.255.255.0
+ client-identifier 0180.6ab0.6d66.06
+ client-name MOVIL_SERVICIOMX_3
+!
+ip dhcp pool MOVIL_SERVICIOMX_6
+ host 192.168.71.30 255.255.255.0
+ client-identifier 014c.fb45.1e92.50
+ client-name MOVIL_SERVICIOMX_6
+!
+ip dhcp pool MOVIL_SERVICIOMX_7
+ host 192.168.71.31 255.255.255.0
+ client-identifier 01d4.63c6.949a.b1
+ client-name MOVIL_SERVICIOMX_7
+!
+ip dhcp pool MOVIL_SERVICIOMX_14
+ host 192.168.71.38 255.255.255.0
+ hardware-address 241f.a0ce.63ba
+ client-name MOVIL_SERVICIOMX_14
+!
+ip dhcp pool MOVIL_SERVICIOMX_27
+ host 192.168.71.51 255.255.255.0
+ client-identifier 0160.beb5.e501.a6
+ client-name MOVIL_SERVICIOMX_27
+!
+ip dhcp pool CCTV
+ import all
+ network 192.168.78.0 255.255.255.0
+ default-router 192.168.78.254
+ dns-server 192.168.222.210 192.168.80.254 8.8.8.8
+!
+ip dhcp pool MOVIL_SERVICIOMX_47
+ host 192.168.71.100 255.255.255.0
+ client-identifier 0138.0b40.5c12.fd
+ client-name MOVIL_SERVICIOMX_47
+!
+ip dhcp pool TABLET_TALENTOMX_8
+ host 192.168.71.69 255.255.255.0
+ client-identifier 01a0.3299.0378.84
+ client-name TABLET_TALENTOMX_8
+!
+ip dhcp pool TABLET_TALENTOMX_6
+ host 192.168.71.67 255.255.255.0
+ client-identifier 01a0.3299.0377.db
+ client-name TABLET_TALENTOMX_6
+!
+ip dhcp pool TABLET_TALENTOMX_7
+ host 192.168.71.68 255.255.255.0
+ client-identifier 01a0.3299.0374.e4
+ client-name TABLET_TALENTOMX_7
+!
+ip dhcp pool TABLET_TALENTOMX_9
+ host 192.168.71.70 255.255.255.0
+ client-identifier 01a0.3299.0378.2a
+ client-name TABLET_TALENTOMX_9
+!
+ip dhcp pool TABLET_TALENTOMX_10
+ host 192.168.71.71 255.255.255.0
+ client-identifier 01a0.3299.0376.7c
+ client-name TABLET_TALENTOMX_10
+!
+ip dhcp pool TABLET_TALENTOMX_12
+ host 192.168.71.73 255.255.255.0
+ client-identifier 01a0.3299.0379.e7
+ client-name TABLET_TALENTOMX_12
+!
+ip dhcp pool TABLET_TALENTOMX_14
+ host 192.168.71.75 255.255.255.0
+ client-identifier 01a0.3299.0379.97
+ client-name TABLET_TALENTOMX_14
+!
+ip dhcp pool TABLET_TALENTOMX_16
+ host 192.168.71.77 255.255.255.0
+ client-identifier 01a0.3299.0378.67
+ client-name TABLET_TALENTOMX_16
+!
+ip dhcp pool TABLET_TALENTOMX_17
+ host 192.168.71.78 255.255.255.0
+ client-identifier 01a0.3299.0376.20
+ client-name TABLET_TALENTOMX_17
+!
+ip dhcp pool TABLET_TALENTOMX_18
+ host 192.168.71.79 255.255.255.0
+ client-identifier 01a0.3299.037a.09
+ client-name TABLET_TALENTOMX_18
+!
+ip dhcp pool TABLET_TALENTOMX_19
+ host 192.168.71.80 255.255.255.0
+ client-identifier 01a0.3299.0375.89
+ client-name TABLET_TALENTOMX_19
+!
+ip dhcp pool TABLET_TALENTOMX_20
+ host 192.168.71.81 255.255.255.0
+ client-identifier 01a0.3299.0378.a1
+ client-name TABLET_TALENTOMX_20
+!
+ip dhcp pool TABLET_TALENTOMX_21
+ host 192.168.71.82 255.255.255.0
+ client-identifier 01a0.3299.0377.19
+ client-name TABLET_TALENTOMX_21
+!
+ip dhcp pool JoanDavid_Vargas_LAPTOP
+ host 192.168.68.20 255.255.255.0
+ client-identifier 01e4.029b.f58b.fb
+ client-name JoanDavidVargas
+!
+ip dhcp pool JoanDavid_Vargas_MOVIL
+ host 192.168.68.21 255.255.255.0
+ client-identifier 0104.7970.2049.7d
+ client-name JoanDavidVargasMOVIL
+!
+ip dhcp pool MOVIL_SERVICIOMX_48
+ host 192.168.71.101 255.255.255.0
+ client-identifier 01a8.9675.03c0.22
+ client-name MOVIL_SERVICIOMX_48
+!
+ip dhcp pool MOVIL_SERVICIOMX_52
+ host 192.168.71.105 255.255.255.0
+ hardware-address 5427.58d6.9982
+ client-name MOVIL_SERVICIOMX_52
+!
+ip dhcp pool MOVIL_SERVICIOMX_53
+ host 192.168.71.106 255.255.255.0
+ hardware-address b4f1.dab0.2354
+ client-name MOVIL_SERVICIOMX_53
+!
+ip dhcp pool MOVIL_SERVICIOMX_54
+ host 192.168.71.107 255.255.255.0
+ client-identifier 018c.99e6.15a3.6e
+ client-name MOVIL_SERVICIOMX_54
+!
+ip dhcp pool MOVIL_SERVICIOMX_55
+ host 192.168.71.108 255.255.255.0
+ hardware-address a4ca.a074.1387
+ client-name MOVIL_SERVICIOMX_55
+!
+ip dhcp pool MOVIL_SERVICIOMX_56
+ host 192.168.71.109 255.255.255.0
+ hardware-address f4cb.520f.2110
+ client-name MOVIL_SERVICIOMX_56
+!
+ip dhcp pool MOVIL_SERVICIOMX_57
+ host 192.168.71.110 255.255.255.0
+ client-identifier 0124.da9b.18a1.ad
+ client-name MOVIL_SERVICIOMX_57
+!
+ip dhcp pool MOVIL_SERVICIOMX_58
+ host 192.168.71.111 255.255.255.0
+ client-identifier 01f0.728c.dbc6.5e
+ client-name MOVIL_SERVICIOMX_58
+!
+ip dhcp pool MOVIL_SERVICIOMX_59
+ host 192.168.71.112 255.255.255.0
+ client-identifier 0190.68c3.e370.bd
+ client-name MOVIL_SERVICIOMX_59
+!
+ip dhcp pool MOVIL_SERVICIOMX_60
+ host 192.168.71.113 255.255.255.0
+ client-identifier 01a0.4c5b.4772.9b
+ client-name MOVIL_SERVICIOMX_60
+!
+ip dhcp pool MOVIL_SERVICIOMX_61
+ host 192.168.71.114 255.255.255.0
+ hardware-address f8a9.d02c.5c55
+ client-name MOVIL_SERVICIOMX_61
+!
+ip dhcp pool MOVIL_SERVICIOMX_62
+ host 192.168.71.115 255.255.255.0
+ client-identifier 0110.3b59.9e7f.93
+ client-name MOVIL_SERVICIOMX_62
+!
+ip dhcp pool MOVIL_SERVICIOMX_63
+ host 192.168.71.116 255.255.255.0
+ client-identifier 011c.56fe.b908.6a
+ client-name MOVIL_SERVICIOMX_63
+!
+ip dhcp pool MOVIL_SERVICIOMX_64
+ host 192.168.71.117 255.255.255.0
+ client-identifier 0120.2d07.515b.f7
+ client-name MOVIL_SERVICIOMX_64
+!
+ip dhcp pool MOVIL_SERVICIOMX_65
+ host 192.168.71.118 255.255.255.0
+ hardware-address bce5.9f61.795a
+ client-name MOVIL_SERVICIOMX_65
+!
+ip dhcp pool MOVIL_SERVICIOMX_66
+ host 192.168.71.119 255.255.255.0
+ hardware-address 8c79.67c5.891e
+ client-name MOVIL_SERVICIOMX_66
+!
+ip dhcp pool MOVIL_SERVICIOMX_67
+ host 192.168.71.120 255.255.255.0
+ client-identifier 0108.d42b.68be.ee
+ client-name MOVIL_SERVICIOMX_67
+!
+ip dhcp pool MOVIL_SERVICIOMX_68
+ host 192.168.71.121 255.255.255.0
+ hardware-address a039.f780.dab9
+ client-name MOVIL_SERVICIOMX_68
+!
+ip dhcp pool MOVIL_SERVICIOMX_69
+ host 192.168.71.122 255.255.255.0
+ hardware-address 6072.0b1a.9583
+ client-name MOVIL_SERVICIOMX_69
+!
+ip dhcp pool MOVIL_SERVICIOMX_70
+ host 192.168.71.123 255.255.255.0
+ client-identifier 010c.715d.3730.ab
+ client-name MOVIL_SERVICIOMX_70
+!
+ip dhcp pool MOVIL_SERVICIOMX_71
+ host 192.168.71.124 255.255.255.0
+ client-identifier 0140.4e36.3a6a.87
+ client-name MOVIL_SERVICIOMX_71
+!
+ip dhcp pool MOVIL_SERVICIOMX_73
+ host 192.168.71.125 255.255.255.0
+ client-identifier 0150.fc9f.0935.4d
+ client-name MOVIL_SERVICIOMX_73
+!
+ip dhcp pool MOVIL_SERVICIOMX_74
+ host 192.168.71.126 255.255.255.0
+ client-identifier 01e8.4e84.b0fd.ad
+ client-name MOVIL_SERVICIOMX_74
+!
+ip dhcp pool MOVIL_SERVICIOMX_75
+ host 192.168.71.127 255.255.255.0
+ hardware-address 0008.223e.fba2
+ client-name MOVIL_SERVICIOMX_75
+!
+ip dhcp pool MOVIL_SERVICIOMX_76
+ host 192.168.71.128 255.255.255.0
+ client-identifier 017c.0bc6.d863.56
+ client-name MOVIL_SERVICIOMX_76
+!
+ip dhcp pool MOVIL_SERVICIOMX_77
+ host 192.168.71.129 255.255.255.0
+ hardware-address 1ccb.9982.0eb7
+ client-name MOVIL_SERVICIOMX_77
+!
+ip dhcp pool MOVIL_SERVICIOMX_78
+ host 192.168.71.130 255.255.255.0
+ hardware-address 4474.6ccf.81e0
+ client-name MOVIL_SERVICIOMX_78
+!
+ip dhcp pool MOVIL_SERVICIOMX_26
+ host 192.168.71.50 255.255.255.0
+ hardware-address 5848.22d0.4878
+ client-name MOVIL_SERVICIOMX_26
+!
+ip dhcp pool MOVIL_SERVICIOMX_49
+ host 192.168.71.102 255.255.255.0
+ hardware-address 0cbd.5178.275e
+ client-name MOVIL_SERVICIOMX_49
+!
+ip dhcp pool MOVIL_SERVICIOMX_50
+ host 192.168.71.103 255.255.255.0
+ hardware-address 4c4e.03b9.1195
+ client-name MOVIL_SERVICIOMX_50
+!
+ip dhcp pool MOVIL_SERVICIOMX_29
+ host 192.168.71.53 255.255.255.0
+ client-identifier 01e4.40e2.9c7c.97
+ client-name MOVIL_SERVICIOMX_29
+!
+ip dhcp pool MOVIL_SERVICIOMX_45
+ host 192.168.71.98 255.255.255.0
+ hardware-address 240d.6500.b5af
+ client-name MOVIL_SERVICIOMX_45
+!
+ip dhcp pool MOVIL_SERVICIOMX_43
+ host 192.168.71.96 255.255.255.0
+ hardware-address d855.a3d1.5a22
+ client-name MOVIL_SERVICIOMX_43
+!
+ip dhcp pool MOVIL_SERVICIOMX_4
+ host 192.168.71.28 255.255.255.0
+ client-identifier 0160.1d91.92eb.7b
+ client-name MOVIL_SERVICIOMX_4
+!
+ip dhcp pool MOVIL_SERVICIOMX_25
+ host 192.168.71.49 255.255.255.0
+ hardware-address a0e4.5361.f59a
+ client-name MOVIL_SERVICIOMX_25
+!
+ip dhcp pool MOVIL_SERVICIOMX_24
+ host 192.168.71.48 255.255.255.0
+ client-identifier 0130.6a85.46b3.56
+ client-name MOVIL_SERVICIOMX_24
+!
+ip dhcp pool MOVIL_SERVICIOMX_28
+ host 192.168.71.52 255.255.255.0
+ hardware-address 806a.b0f0.d97a
+ client-name MOVIL_SERVICIOMX_28
+!
+ip dhcp pool MOVIL_SERVICIOMX_8
+ host 192.168.71.32 255.255.255.0
+ client-identifier 014c.910c.16b3.a8
+ client-name MOVIL_SERVICIOMX_8
+!
+ip dhcp pool MOVIL_SERVICIOMX_9
+ host 192.168.71.33 255.255.255.0
+ hardware-address 9cdf.b177.0fcb
+ client-name MOVIL_SERVICIOMX_9
+!
+ip dhcp pool MOVIL_SERVICIOMX_5
+ host 192.168.71.29 255.255.255.0
+ hardware-address 000c.e815.9bf6
+ client-name MOVIL_SERVICIOMX_5
+!
+ip dhcp pool MOVIL_SERVICIOMX_1
+ host 192.168.71.25 255.255.255.0
+ client-identifier 013c.a10d.fd51.e8
+ client-name MOVIL_SERVICIOMX_1
+!
+ip dhcp pool MOVIL_SERVICIOMX_10
+ host 192.168.71.34 255.255.255.0
+ hardware-address 44d4.e09d.f2bc
+ client-name MOVIL_SERVICIOMX_10
+!
+ip dhcp pool MOVIL_SERVICIOMX_11
+ host 192.168.71.35 255.255.255.0
+ hardware-address 9cdf.b176.c700
+ client-name MOVIL_SERVICIOMX_11
+!
+ip dhcp pool MOVIL_SERVICIOMX_12
+ host 192.168.71.36 255.255.255.0
+ hardware-address 6e7c.5008.7c20
+ client-name MOVIL_SERVICIOMX_12
+!
+ip dhcp pool MOVIL_SERVICIOMX_19
+ host 192.168.71.43 255.255.255.0
+ client-identifier 014c.4e03.0738.64
+ client-name MOVIL_SERVICIOMX_19
+!
+ip dhcp pool TABLET_SERVICIOMX_15
+ host 192.168.71.39 255.255.255.0
+ client-identifier 0138.1dd9.df07.e0
+ client-name TABLET_SERVICIOMX_15
+!
+ip dhcp pool MOVIL_SERVICIOMX_16
+ host 192.168.71.40 255.255.255.0
+ hardware-address f034.0416.5275
+ client-name MOVIL_SERVICIOMX_16
+!
+ip dhcp pool MOVIL_SERVICIOMX_17
+ host 192.168.71.41 255.255.255.0
+ hardware-address 78f8.82c8.3296
+ client-name MOVIL_SERVICIOMX_17
+!
+ip dhcp pool MOVIL_SERVICIOMX_18
+ host 192.168.71.42 255.255.255.0
+ hardware-address 78e8.b6cb.4902
+ client-name MOVIL_SERVICIOMX_18
+!
+ip dhcp pool MOVIL_SERVICIOMX_20
+ host 192.168.71.44 255.255.255.0
+ client-identifier 0184.100d.0673.f2
+ client-name MOVIL_SERVICIOMX_20
+!
+ip dhcp pool MOVIL_SERVICIOMX_21
+ host 192.168.71.45 255.255.255.0
+ client-identifier 01e4.40e2.cbc7.ce
+ client-name MOVIL_SERVICIOMX_21
+!
+ip dhcp pool MOVIL_SERVICIOMX_31
+ host 192.168.71.55 255.255.255.0
+ hardware-address d8e5.6de2.2c9a
+ client-name MOVIL_SERVICIOMX_31
+!
+ip dhcp pool MOVIL_SERVICIOMX_22
+ host 192.168.71.46 255.255.255.0
+ hardware-address 8c79.679b.48a1
+ client-name MOVIL_SERVICIOMX_22
+!
+ip dhcp pool MOVIL_SERVICIOMX_23
+ host 192.168.71.47 255.255.255.0
+ client-identifier 01a0.57e3.3430.08
+ client-name MOVIL_SERVICIOMX_23
+!
+ip dhcp pool MOVIL_SERVICIOMX_79
+ host 192.168.71.131 255.255.255.0
+ hardware-address 50a7.2bb9.0d31
+ client-name MOVIL_SERVICIOMX_79
+!
+ip dhcp pool MOVIL_SERVICIOMX_30
+ host 192.168.71.54 255.255.255.0
+ client-identifier 0190.60f1.4e97.40
+ client-name MOVIL_SERVICIOMX_30
+!
+!
+!
+!
+!
+!
+!
+!
+!
+diagnostic bootup level minimal
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+redundancy
+ mode sso
+!
+!
+!
+class-map match-any non-client-nrt-class
+  match non-client-nrt
+!
+policy-map port_child_policy
+ class non-client-nrt-class
+    bandwidth remaining ratio 10
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ vrf forwarding Mgmt-vrf
+ no ip address
+ negotiation auto
+!
+interface GigabitEthernet1/0/1
+ description SW01-MDF-PACH
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/2
+ description SW02-MDF-PACH
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/3
+ description SW03-MDF-PACH
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/4
+ description SW04-MDF-PACH
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/5
+ description SW05-MDF-PACH
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/6
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/7
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/8
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/9
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/10
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/11
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80,500
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/12
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/13
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/14
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/15
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/16
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/17
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/18
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/19
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/20
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/21
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/22
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/23
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/24
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/25
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/26
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/27
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/28
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/29
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/30
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/31
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/32
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/33
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/34
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/35
+ switchport access vlan 78
+ switchport mode access
+!
+interface GigabitEthernet1/0/36
+ switchport access vlan 78
+ switchport mode access
+!
+interface GigabitEthernet1/0/37
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/38
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/39
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/40
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/41
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/42
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/43
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/44
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/45
+ switchport access vlan 78
+ switchport mode access
+!
+interface GigabitEthernet1/0/46
+ switchport access vlan 500
+ switchport mode access
+!
+interface GigabitEthernet1/0/47
+ switchport trunk native vlan 80
+ switchport trunk allowed vlan 60-80
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/48
+ description HACIA FORTINET
+ switchport access vlan 80
+ switchport mode access
+!
+interface GigabitEthernet1/1/1
+!
+interface GigabitEthernet1/1/2
+!
+interface GigabitEthernet1/1/3
+!
+interface GigabitEthernet1/1/4
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan60
+ ip address 192.168.60.254 255.255.255.0
+!
+interface Vlan61
+ ip address 192.168.61.254 255.255.255.0
+!
+interface Vlan62
+ ip address 192.168.62.254 255.255.255.0
+!
+interface Vlan63
+ ip address 192.168.63.254 255.255.255.0
+!
+interface Vlan64
+ ip address 192.168.64.254 255.255.255.0
+!
+interface Vlan65
+ ip address 192.168.65.254 255.255.255.0
+!
+interface Vlan66
+ ip address 192.168.66.254 255.255.255.0
+!
+interface Vlan67
+ ip address 192.168.67.254 255.255.255.0
+!
+interface Vlan68
+ ip address 192.168.68.254 255.255.255.0
+!
+interface Vlan69
+ ip address 192.168.69.254 255.255.255.0
+!
+interface Vlan70
+ ip address 192.168.70.254 255.255.255.0
+!
+interface Vlan71
+ ip address 192.168.71.254 255.255.255.0
+!
+interface Vlan72
+ ip address 192.168.72.254 255.255.255.0
+!
+interface Vlan73
+ ip address 192.168.73.254 255.255.255.0
+!
+interface Vlan74
+ ip address 192.168.74.254 255.255.255.0
+!
+interface Vlan75
+ ip address 192.168.75.254 255.255.255.0
+!
+interface Vlan76
+ ip address 192.168.76.254 255.255.255.0
+!
+interface Vlan77
+ ip address 192.168.77.254 255.255.255.0
+!
+interface Vlan78
+ ip address 192.168.78.254 255.255.255.0
+!
+interface Vlan79
+ ip address 192.168.79.254 255.255.255.0
+!
+interface Vlan80
+ ip address 192.168.80.253 255.255.255.0
+!
+interface Vlan500
+ ip address 172.16.0.254 255.255.255.0
+!
+ip default-gateway 192.168.80.254
+ip http server
+ip http authentication local
+ip http secure-server
+ip route 0.0.0.0 0.0.0.0 192.168.80.254
+!
+!
+!
+!
+!
+line con 0
+ password 7 071D72195B5A481344
+ login
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ password 7 15000E1F112F27322D626771
+ login
+line vty 5 15
+ password 7 15000E1F112F27322D626771
+ login
+!
+wsma agent exec
+ profile httplistener
+ profile httpslistener
+wsma agent config
+ profile httplistener
+ profile httpslistener
+wsma agent filesys
+ profile httplistener
+ profile httpslistener
+wsma agent notify
+ profile httplistener
+ profile httpslistener
+!
+wsma profile listener httplistener
+ transport http
+!
+wsma profile listener httpslistener
+ transport https
+ap group default-group
+end
+
+CORE_PACHUCA#
+
