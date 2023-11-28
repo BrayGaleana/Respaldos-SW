@@ -1,0 +1,2403 @@
+FGT-CDMX-400F # execute telnet 192.168.222.252
+Trying 192.168.222.252...
+Connected to 192.168.222.252.
+
+
+User Access Verification
+
+Password:
+CORE_MASARYK>enable
+Password:
+CORE_MASARYK#show ru
+CORE_MASARYK#show running-config
+Building configuration...
+
+Current configuration : 69677 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname CORE_MASARYK
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$28Te$YieWmKpGd6i3S0kgaKR9q1
+enable password 7 105C5A4C1044431D5F5578786E
+!
+!
+!
+no aaa new-model
+clock timezone EST-5 19 37
+system mtu routing 1500
+ip routing
+ip dhcp excluded-address 192.168.214.1 192.168.214.20
+ip dhcp excluded-address 192.168.207.1 192.168.207.30
+!
+ip dhcp pool NEGOCIACION
+   import all
+   network 192.168.205.0 255.255.255.0
+   default-router 192.168.205.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool SERVICIO_A_CLIENTES
+   import all
+   network 192.168.206.0 255.255.255.0
+   default-router 192.168.206.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool FINANZAS
+   import all
+   network 192.168.208.0 255.255.255.0
+   default-router 192.168.208.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool NCC
+   import all
+   network 192.168.209.0 255.255.255.0
+   default-router 192.168.209.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool DIRECCION_GENERAL
+   import all
+   network 192.168.210.0 255.255.255.0
+   default-router 192.168.210.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool TALENTO
+   import all
+   network 192.168.211.0 255.255.255.0
+   default-router 192.168.211.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool INGENIERIA
+   import all
+   network 192.168.212.0 255.255.255.0
+   default-router 192.168.212.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool SALAS
+   import all
+   network 192.168.213.0 255.255.255.0
+   default-router 192.168.213.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool MARKETING
+   import all
+   network 192.168.214.0 255.255.255.0
+   default-router 192.168.214.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool CCTV
+   import all
+   network 192.168.221.0 255.255.255.0
+   default-router 192.168.221.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool AP'S
+   import all
+   network 192.168.215.0 255.255.255.0
+   default-router 192.168.215.254
+   dns-server 192.168.222.253 8.8.8.8
+!
+ip dhcp pool WIFI_RESUELVE
+   import all
+   network 192.168.216.0 255.255.255.0
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   default-router 192.168.216.254
+!
+ip dhcp pool WIFI_ING
+   import all
+   network 192.168.217.0 255.255.255.0
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   default-router 192.168.217.254
+!
+ip dhcp pool WIFI_DIR
+   import all
+   network 192.168.218.0 255.255.255.0
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   default-router 192.168.218.254
+!
+ip dhcp pool WIFI_INVITADOS
+   import all
+   network 192.168.226.0 255.255.255.0
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   default-router 192.168.226.254
+!
+ip dhcp pool WIFI_SC_MOVILES
+   import all
+   network 192.168.227.0 255.255.255.0
+   default-router 192.168.227.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool VTAS_CHECK
+   import all
+   network 192.168.203.0 255.255.255.0
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   default-router 192.168.203.254
+!
+ip dhcp pool Jesus_Escamilla_movil
+   host 192.168.217.17 255.255.255.0
+   client-identifier 0188.52eb.9fe9.12
+   client-name JEFmovil
+!
+ip dhcp pool Enrique_Espinoza_Movil
+   host 192.168.217.37 255.255.255.0
+   client-identifier 0180.398c.8387.54
+   client-name Enrique_Espinoza_Movil
+!
+ip dhcp pool Isaias_Palestina_MOVIL
+   host 192.168.217.68 255.255.255.0
+   client-identifier 01ba.6b7f.86f5.88
+   client-name PalestinaMOVIL
+!
+ip dhcp pool Alfonso_Martinez_MACBOOK
+   host 192.168.217.41 255.255.255.0
+   client-identifier 01a0.7817.a673.3d
+   client-name AlfonsoMartinezMACBOOK
+!
+ip dhcp pool Alfonso_Martinez_MOVIL
+   host 192.168.217.71 255.255.255.0
+   client-identifier 01cc.660a.67c8.36
+   client-name AlfonsoMartinezANDROID
+!
+ip dhcp pool Raul_Montes_MOVIL
+   host 192.168.217.74 255.255.255.0
+   client-identifier 01b0.eb57.8bde.87
+   client-name RaulMontesANDROID
+!
+ip dhcp pool Jair_Pena_Trejo_MACBOOK
+   host 192.168.217.96 255.255.255.0
+   client-identifier 010e.da5b.3b1a.9b
+   client-name JairPenaMACBOOK
+!
+ip dhcp pool Daniel_Gonzalez_LAPTOP
+   host 192.168.217.120 255.255.255.0
+   client-identifier 0164.8099.ce6c.e2
+   client-name DANIELGONZALEZLAPTOP
+!
+ip dhcp pool Daniel_Gonzalez_MOVIL
+   host 192.168.217.121 255.255.255.0
+   client-identifier 0110.94bb.0992.a4
+   client-name DanielGonzalezANDROID
+!
+ip dhcp pool Marcos_Cuevas_LAPTOP
+   host 192.168.216.188 255.255.255.0
+   client-identifier 01d4.6a6a.0841.ed
+   client-name mcuevas@resuelve.mx
+!
+ip dhcp pool Pedro_Torres_Movil
+   host 192.168.217.100 255.255.255.0
+   client-identifier 0160.f189.5366.c4
+   client-name PedroTorresANDROID
+!
+ip dhcp pool Gamaliel_Vargas_LAPTOP
+   host 192.168.218.112 255.255.255.0
+   client-identifier 018c.8590.b734.f3
+   client-name gvargasf@resuelve.mx
+!
+ip dhcp pool Adriana_Pineda_LAPTOP
+   host 192.168.216.110 255.255.255.0
+   client-identifier 01ec.63d7.d1c2.75
+   client-name AdrianaPinedaLAPTOP
+!
+ip dhcp pool Jesus_Monroy_LAPTOP
+   host 192.168.216.125 255.255.255.0
+   client-identifier 01d8.f2ca.711d.fd
+   client-name JesusMonroyLAPTOP
+!
+ip dhcp pool Karina_Espinoza_MOVIL
+   host 192.168.216.151 255.255.255.0
+   client-identifier 0190.17c8.c633.e9
+   client-name KarinaEspinozaANDROID
+!
+ip dhcp pool Virginia_X_Romero_MOVIL
+   host 192.168.216.152 255.255.255.0
+   client-identifier 01f4.7190.89d0.52
+   client-name VirginiaXRomeroANDROID
+!
+ip dhcp pool Erick_Zepeda_MOVIL
+   host 192.168.216.143 255.255.255.0
+   client-identifier 0110.94bb.47c5.30
+   client-name ErickZepedaANDROID
+!
+ip dhcp pool TALENTO_2
+   import all
+   network 192.168.232.0 255.255.255.0
+   default-router 192.168.232.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool Max_Toledo_MOVIL
+   host 192.168.216.179 255.255.255.0
+   client-identifier 0156.0576.a769.92
+   client-name MAXTOLEDOIPHONE
+!
+ip dhcp pool Anahi_Hernandez_LAPTOP
+   host 192.168.216.184 255.255.255.0
+   client-identifier 01d8.fc93.4089.bd
+   client-name AnahiHDZLAPTOP
+!
+ip dhcp pool David_Gonzalez_MOVIL
+   host 192.168.216.186 255.255.255.0
+   client-identifier 018c.4500.2b87.90
+   client-name DavidGonzalezIPHONE
+!
+ip dhcp pool CONTRATOS
+   import all
+   network 192.168.204.0 255.255.255.0
+   default-router 192.168.204.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool WIFI_ING2
+   import all
+   network 192.168.219.0 255.255.255.0
+   default-router 192.168.219.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 3
+!
+ip dhcp pool CarlosF_Flores_IPHONE
+   host 192.168.217.110 255.255.255.0
+   client-identifier 0140.9c28.05cb.54
+   client-name CarlosFFloresIPHONE
+!
+ip dhcp pool Erick_Zepeda_LAP
+   host 192.168.216.194 255.255.255.0
+   client-identifier 01f8.da0c.2c57.69
+   client-name ErickZepedaLAP
+!
+ip dhcp pool Eduardo_Cortes_MOVIL
+   host 192.168.217.115 255.255.255.0
+   client-identifier 01f2.9792.d3af.04
+   client-name EduarcoCortesANDROID
+!
+ip dhcp pool Omar_Fragoso_LAPTOP
+   host 192.168.218.110 255.255.255.0
+   client-identifier 013c.22fb.1f49.da
+   client-name ofragoso@resuelvetudeuda.com
+!
+ip dhcp pool Pamela_Castro_LAPTOP
+   host 192.168.216.202 255.255.255.0
+   client-identifier 01f8.da0c.2c39.8b
+   client-name PamelaCastroLAPTOP
+!
+ip dhcp pool Gamaliel_Vargas_MOVIL
+   host 192.168.218.113 255.255.255.0
+   client-identifier 0184.7637.6827.fc
+   client-name gvargasf@resuelve.mx
+!
+ip dhcp pool Javier_Velazquez_LAPTOP
+   host 192.168.218.1 255.255.255.0
+   client-identifier 01a0.afbd.6baf.53
+   client-name JavierVelazquezLAPTOP
+!
+ip dhcp pool Javier_Velazquez_MOVIL
+   host 192.168.218.2 255.255.255.0
+   client-identifier 01e2.72a3.1283.43
+   client-name JavierVelazquezIPHONE
+!
+ip dhcp pool Juan_Pablo_LAPTOP
+   host 192.168.218.3 255.255.255.0
+   client-identifier 0114.7dda.dc19.05
+   client-name JuanPabloLAPTOP
+!
+ip dhcp pool Cristina_Cervantes_LAPTOP
+   host 192.168.218.5 255.255.255.0
+   client-identifier 0138.f9d3.5d55.ce
+   client-name CristinaCervantesLAPTOP
+!
+ip dhcp pool Daniel_Martinez_MOVIL
+   host 192.168.218.10 255.255.255.0
+   client-identifier 013c.286d.00ce.a1
+   client-name DanielMartinezIPHONE
+!
+ip dhcp pool Javier_Salmeron_LAPTOP
+   host 192.168.218.13 255.255.255.0
+   client-identifier 0144.032c.dde4.65
+   client-name jsalmeron@resuelvetudeuda.com
+!
+ip dhcp pool Karen_Uribe_LAPTOP
+   host 192.168.216.182 255.255.255.0
+   client-identifier 0164.8099.f0c2.e7
+   client-name GuillermoMartinezLAPTOP
+!
+ip dhcp pool Cristina_Cervantes_MOVIL
+   host 192.168.218.6 255.255.255.0
+   client-identifier 0188.1908.85d2.0f
+   client-name CristinaCervantesMOVIL
+!
+ip dhcp pool Ricardo_Camarena_LAPTOP
+   host 192.168.218.19 255.255.255.0
+   client-identifier 01b0.be83.0f49.eb
+   client-name RicardoCamarenaLAPTOP
+!
+ip dhcp pool Roberto_Sanchez_MACBOOK
+   host 192.168.218.21 255.255.255.0
+   client-identifier 0114.7dda.8f5e.bc
+   client-name RobertoSanchezMACBOOK
+!
+ip dhcp pool Roberto_Sanchez_MOVIL
+   host 192.168.218.22 255.255.255.0
+   client-identifier 01b4.f7a1.bffa.db
+   client-name RobertoSanchezMOVIL
+!
+ip dhcp pool Diego_Pailles_MOVIL
+   host 192.168.218.16 255.255.255.0
+   client-identifier 01ac.3eb1.16bd.ae
+   client-name DiegoPaillesMOVIL
+!
+ip dhcp pool Ricardo_Camarena_MOVIL
+   host 192.168.218.20 255.255.255.0
+   client-identifier 01b6.bce2.5b25.d3
+   client-name RicardoCamarenaMOVIL
+!
+ip dhcp pool Rodrigo_Nadal_LAPTOP
+   host 192.168.218.29 255.255.255.0
+   client-identifier 01a0.7817.9d3a.be
+   client-name RodrigoNadalLAPTOP
+!
+ip dhcp pool Rodrigo_Nadal_MOVIL
+   host 192.168.218.30 255.255.255.0
+   client-identifier 0178.64c0.cc2e.ab
+   client-name RodrigoNadalMOVIL
+!
+ip dhcp pool Daniel_Martinez_LAPTOP
+   host 192.168.218.9 255.255.255.0
+   client-identifier 91a4.d18c.602e.42
+   client-name DanielMartinezLAPTOP
+!
+ip dhcp pool JC_Ballesteros_LAPTOP
+   host 192.168.218.25 255.255.255.0
+   client-identifier 01d8.f2ca.7110.24
+   client-name JCBallesterosLAPTOP
+!
+ip dhcp pool JC_Ballesteros_MOVIL
+   host 192.168.218.26 255.255.255.0
+   client-identifier 01f0.c371.3489.1f
+   client-name JCBallesterosMOVIL
+!
+ip dhcp pool Katherine_Cardenas_LAPTOP
+   host 192.168.217.122 255.255.255.0
+   client-identifier 01a4.d18c.602e.42
+   client-name KatherineCardenasLAPTOP
+!
+ip dhcp pool Katherine_Cardenas_MOVIL
+   host 192.168.217.123 255.255.255.0
+   client-identifier 0134.4262.c786.b0
+   client-name KatherineCardenasMOVIL
+!
+ip dhcp pool Pamela_Cardenas_MACBOOK
+   host 192.168.216.155 255.255.255.0
+   client-identifier 013c.15c2.eeba.b0
+   client-name PamelaCardenasMACBOOK
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_14
+   host 192.168.227.93 255.255.255.0
+   client-identifier 01d4.63c6.9499.04
+   client-name isaac.lides@resuelvetudeuda.com
+!
+ip dhcp pool Gibran_Moreno_MOVIL
+   host 192.168.217.126 255.255.255.0
+   hardware-address 6480.99d5.cdb6
+   client-name GibranMorenoMOVIL
+!
+ip dhcp pool MOVIL_CREDITOMX_14
+   host 192.168.227.96 255.255.255.0
+   client-identifier 0130.6a85.831a.ea
+   client-name jhoana.saenz@resuelvetudeuda.com
+!
+ip dhcp pool Eduardo_Saavedra_LAPTOP
+   host 192.168.217.134 255.255.255.0
+   hardware-address 6480.99b8.9b88
+   client-name EDUARDOSAAVEDRALAPTOP
+!
+ip dhcp pool Eduardo_Saavedra_MOVIL
+   host 192.168.217.135 255.255.255.0
+   client-identifier 01f8.87f1.7f4e.4b
+   client-name EDUARDOSAAVEDRAMOVIL
+!
+ip dhcp pool Cristina_Cervantes_IPAD
+   host 192.168.218.33 255.255.255.0
+   client-identifier 0160.8c4a.5c1e.23
+   client-name CristinaCervantesIPAD
+!
+ip dhcp pool Silvia_Barrero_LAPTOP
+   host 192.168.216.210 255.255.255.0
+   client-identifier 019c.305b.df7d.29
+   client-name SilviaBarreroLAPTOP
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_16
+   host 192.168.227.98 255.255.255.0
+   client-identifier 01f4.7190.aca4.58
+   client-name acabrera@resuelvetudeuda.com
+!
+ip dhcp pool Jair_Trejo_LAP2
+   host 192.168.217.140 255.255.255.0
+   client-identifier 0138.f9d3.2e6b.39
+   client-name JairTrejoLAP2
+!
+ip dhcp pool David_Avalos_LAPTOP
+   host 192.168.218.116 255.255.255.0
+   client-identifier 019c.305b.027d.65
+   client-name davalos@resuelvetudeuda.com
+!
+ip dhcp pool Regina_Urbina_MOVIL
+   host 192.168.216.47 255.255.255.0
+   client-identifier 01e6.c210.5b0b.4c
+   client-name ReginaUrbinaMOVIL
+!
+ip dhcp pool MaryCarmen_Trejo_MOVIL
+   host 192.168.216.159 255.255.255.0
+   client-identifier 0108.aa55.d9e7.ac
+   client-name MaryCarmenTrejoMOVIL
+!
+ip dhcp pool Patrick_Galvan_LAPTOP
+   host 192.168.216.201 255.255.255.0
+   client-identifier 019c.305b.4c15.37
+   client-name PatrickGalvanLAPTOP
+!
+ip dhcp pool MOVIL_SERVICIOMX_71
+   host 192.168.71.124 255.255.255.0
+   client-identifier 0140.4e36.3a6a.87
+   client-name MOVIL_SERVICIOMX_71
+!
+ip dhcp pool Regina_Urbina_LAPTOP
+   host 192.168.218.40 255.255.255.0
+   client-identifier 0150.2f9b.59b3.61
+   client-name regina.urbina@gobravo.es
+!
+ip dhcp pool Raul_Adonay_LAPTOP
+   host 192.168.216.115 255.255.255.0
+   client-identifier 0168.e7c2.001e.17
+   client-name RaulAdonayLAPTOP
+!
+ip dhcp pool Israel_Rodriguez_LAPTOP
+   host 192.168.216.45 255.255.255.0
+   client-identifier 019c.da3e.0701.20
+   client-name IsraelRodriguezLAPTOP
+!
+ip dhcp pool Erick_Orihuela_MOVIL
+   host 192.168.217.48 255.255.255.0
+   client-identifier 01d6.ef4a.0884.b2
+   client-name ErickOrihuelaMOVIL
+!
+ip dhcp pool Maritza_Castaneda_LAPTOP
+   host 192.168.217.65 255.255.255.0
+   client-identifier 01b4.0ede.2fdf.78
+   client-name maritza@resuelve.mx
+!
+ip dhcp pool Alejandra_Velazquez_MOVIL
+   host 192.168.217.128 255.255.255.0
+   client-identifier 01a4.d931.5f1d.49
+   client-name AlejandraVelazquezMOVIL
+!
+ip dhcp pool JhonE_Lopez_MACBOOK
+   host 192.168.217.77 255.255.255.0
+   client-identifier 01a0.7817.a329.d8
+   client-name JhoneELopezMACBOOK
+!
+ip dhcp pool JhonE_Lopez_MOVIL
+   host 192.168.217.76 255.255.255.0
+   client-identifier 01c0.1ada.5b35.d3
+   client-name JhonELopezMOVIL
+!
+ip dhcp pool Yolanda_Gonzalez_MOVIL
+   host 192.168.216.72 255.255.255.0
+   client-identifier 0118.703b.c33d.55
+   client-name YolandaGonzalezMOVIL
+!
+ip dhcp pool MOVIL_CREDITOMX_6
+   host 192.168.227.6 255.255.255.0
+   client-identifier 0190.633b.ebd2.b7
+   client-name daniela.perez@resuelvetudeuda.com
+!
+ip dhcp pool MOVIL_CREDITOMX_19
+   host 192.168.227.106 255.255.255.0
+   client-identifier 0190.633b.aed1.39
+   client-name bere@resuelve.mx
+!
+ip dhcp pool Maru_Ramos_MOVIL
+   host 192.168.216.127 255.255.255.0
+   client-identifier 01c8.c2fa.dec9.40
+   client-name MaruRamosMOVIL
+!
+ip dhcp pool Erick_Navarro_MACBOOK
+   host 192.168.217.151 255.255.255.0
+   client-identifier 01a4.cf99.71c6.a4
+   client-name ErickNavarroMACBOOK
+!
+ip dhcp pool Cristel_Lopez_MOVIL
+   host 192.168.217.153 255.255.255.0
+   hardware-address 7c03.abf9.e55f
+   client-name CristelLopezMOVIL
+!
+ip dhcp pool Sarahi_Lopez_LAP_PERSONAL
+   host 192.168.216.78 255.255.255.0
+   client-identifier 01f0.d5bf.4ccc.0f
+   client-name SarahiLopezLAPPERSONALMOVIL
+!
+ip dhcp pool Pilar_Fernandez_MOVIL
+   host 192.168.216.173 255.255.255.0
+   client-identifier 01aa.2aab.00c7.5d
+   client-name PilarFernandezMOVIL
+!
+ip dhcp pool Pedro_Torres_LAPTOP
+   host 192.168.217.27 255.255.255.0
+   hardware-address 013c.0630.33fc.fb
+   client-name PedroTorresLAPTOP
+!
+ip dhcp pool Luis_Enrique_MOVIL
+   host 192.168.217.75 255.255.255.0
+   client-identifier 01c8.c2fa.e2a4.2a
+   client-name LuisEnriqueMOVIL
+!
+ip dhcp pool Luis_Enrique_IPAD
+   host 192.168.217.85 255.255.255.0
+   client-identifier 0124.1b7a.813a.32
+   client-name LuisEnriqueIPAD
+!
+ip dhcp pool Noe_Avalos_LAPTOP
+   host 192.168.216.200 255.255.255.0
+   client-identifier 01b0.be83.3d21.c9
+   client-name Noe_Avalos_LAPTOP
+!
+ip dhcp pool Laura_Abarca_LAPTOP
+   host 192.168.216.85 255.255.255.0
+   client-identifier 0164.8099.d5cc.44
+   client-name LauraAbarcaLAPTOP
+!
+ip dhcp pool Santos_Garcia_MOVIL
+   host 192.168.216.91 255.255.255.0
+   client-identifier 0130.83d2.a73e.c8
+   client-name SantosGarciaMOVIL
+!
+ip dhcp pool Alberto_Ferraez_LAPTOP
+   host 192.168.216.139 255.255.255.0
+   client-identifier 01d8.9c67.3d8f.a7
+   client-name AlbertoFerraezLAPTOP
+!
+ip dhcp pool Raul_Montes_IPAD
+   host 192.168.217.50 255.255.255.0
+   client-identifier 0108.2cb6.7e70.ad
+   client-name RaulMontesIPAD
+!
+ip dhcp pool Arturo_Carmona_LAPTOP
+   host 192.168.216.92 255.255.255.0
+   client-identifier 0164.8099.f0bf.c2
+   client-name acarmonas@resuelvetudeuda.com
+!
+ip dhcp pool Isaac_Escobar_MOVIL
+   host 192.168.216.49 255.255.255.0
+   client-identifier 01e0.c377.9ae7.e0
+   client-name IsaacEscobarMOVIL
+!
+ip dhcp pool Sheila_Velazquez_LAPTOP
+   host 192.168.216.107 255.255.255.0
+   client-identifier 01d8.9c67.3d60.f5
+   client-name SheilaVelazquezLAPTOP
+!
+ip dhcp pool ARNULFO_CASTILLO_LAPTOP
+   host 192.168.216.120 255.255.255.0
+   client-identifier 0148.e244.0139.d5
+   client-name ARNULFOCASTILLOLAPTOP
+!
+ip dhcp pool Diego_Montes_LAPTOP
+   host 192.168.216.192 255.255.255.0
+   client-identifier 0140.2343.a6de.81
+   client-name dmorales@resuelvetudeuda.com
+!
+ip dhcp pool Armando_Calzada_LAPTOP
+   host 192.168.217.30 255.255.255.0
+   client-identifier 01d8.f3bc.627e.8d
+   client-name acalzadas@resuelve.mx
+!
+ip dhcp pool Martha_Ordonez_MOVIL
+   host 192.168.216.142 255.255.255.0
+   client-identifier 01f4.cb52.9b71.40
+   client-name MarthaOrdonezMOVIL
+!
+ip dhcp pool LuisFernando_Lucido_MacBook
+   host 192.168.218.127 255.255.255.0
+   client-identifier 01a0.7817.8139.07
+   client-name luis.lucido@resuelve.mx
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_26
+   host 192.168.227.120 255.255.255.0
+   client-identifier 0108.aa55.d9b2.11
+   client-name enrique.blanco@resuelvetudeuda.com
+!
+ip dhcp pool Ricardo_Pacheco_LAPTOP
+   host 192.168.216.215 255.255.255.0
+   client-identifier 01f8.da0c.20da.91
+   client-name ricardo.pacheco@resuelvetudeuda.com
+!
+ip dhcp pool Ana_Brun_LAPTOPPER
+   host 192.168.216.199 255.255.255.0
+   client-identifier 0190.ccdf.d395.f0
+   client-name AnaBrunLAPTOPPER
+!
+ip dhcp pool Diana_HdzBastida_LAPTOPPER
+   host 192.168.216.180 255.255.255.0
+   client-identifier 0190.324b.2acb.27
+   client-name diana.hbastida@resuelvetudeuda.com
+!
+ip dhcp pool SPENCER_FLORES_LAPTOPPER
+   host 192.168.216.195 255.255.255.0
+   client-identifier 0100.45e2.4dcc.e5
+   client-name spencer.floresp@resuelvetudeuda.com
+!
+ip dhcp pool Isaias_Palestina_MACBOOK
+   host 192.168.217.38 255.255.255.0
+   client-identifier 013c.0630.3bc3.8f
+   client-name ipalestina@resuelve.mx
+!
+ip dhcp pool Alejandra_Garcia_LAPTOP
+   host 192.168.217.8 255.255.255.0
+   client-identifier 013c.0630.3981.6e
+   client-name alejandra.gmartinez@resuelve.mx
+!
+ip dhcp pool Alejandra_Garcia_MOVIL
+   host 192.168.217.9 255.255.255.0
+   client-identifier 0104.c807.aa5b.1a
+   client-name alejandra.gmartinez@resuelve.mx
+!
+ip dhcp pool Carlos_Vargas_Movil
+   host 192.168.217.57 255.255.255.0
+   client-identifier 0148.bce1.ff8f.c4
+   client-name CVMovil
+!
+ip dhcp pool Camilo_Gonzalez_LAP
+   host 192.168.218.114 255.255.255.0
+   client-identifier 01a4.83e7.458a.ba
+   client-name cgonzalez@resuelvetudeuda.com
+!
+ip dhcp pool Donovan_Arturo_LAP
+   host 192.168.216.220 255.255.255.0
+   client-identifier 0164.8099.d552.4b
+   client-name donovan.mendez@resuelvetudeuda.com
+!
+ip dhcp pool Andres_Guizar_LAP
+   host 192.168.216.15 255.255.255.0
+   client-identifier 01f8.da0c.2be1.d3
+   client-name andres.guizar@latasa.mx
+!
+ip dhcp pool Carolina_Brun_LAP
+   host 192.168.216.20 255.255.255.0
+   client-identifier 01e8.6f38.742f.ad
+   client-name cbrun@resuelvetudeuda.com
+!
+ip dhcp pool Donovan_Mendez_LAPPER
+   host 192.168.216.183 255.255.255.0
+   client-identifier 0128.11a8.1d97.5f
+   client-name donovan.mendez@resuelvetudeuda.com
+!
+ip dhcp pool VTAS_RTD
+   import all
+   network 192.168.200.0 255.255.255.0
+   default-router 192.168.200.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+!
+ip dhcp pool VTAS_RTD_1
+   import all
+   network 192.168.201.0 255.255.255.0
+   default-router 192.168.201.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+!
+ip dhcp pool Camilo_Gonzalez_MOVIL
+   host 192.168.218.115 255.255.255.0
+   client-identifier 01f4.65a6.e725.1e
+   client-name cgonzalez@resuelvetudeuda.com
+!
+ip dhcp pool Isaac_Escobar_Lap
+   host 192.168.216.53 255.255.255.0
+   client-identifier 011c.1bb5.8ee3.97
+   client-name isaac.soler@resuelve.mx
+!
+ip dhcp pool Daniela_Ramirez_LAP
+   host 192.168.68.27 255.255.255.0
+   client-identifier 01f0.0fec.fc02.bc
+   client-name daniela.ramirez@resuelve.mx
+!
+ip dhcp pool Perla_Vargas_MOVIL
+   host 192.168.216.197 255.255.255.0
+   client-identifier 01ee.211d.2a0d.c0
+   client-name perla.vargas@resuelve.mx
+!
+ip dhcp pool Diana_Soto_Laptop
+   host 192.168.216.213 255.255.255.0
+   client-identifier 0190.0f0c.65c0.9b
+   client-name diana.soto@resuelvetudeuda.com
+!
+ip dhcp pool Juan_Arevalo_LAP
+   host 192.168.217.101 255.255.255.0
+   client-identifier 01a4.cf99.892e.c6
+   client-name chaba.arevalo@resuelve.mx
+!
+ip dhcp pool Jyr_LAP
+   host 192.168.217.108 255.255.255.0
+   client-identifier 013c.0630.37f0.3f
+   client-name jyr@resuelve.mx
+!
+ip dhcp pool Elizabeth_Valera_LAPTOP
+   host 192.168.216.21 255.255.255.0
+   client-identifier 0164.8099.f0c2.d8
+   client-name evarela@resuelvetudeuda.com
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_40
+   host 192.168.227.174 255.255.255.0
+   client-identifier 017e.191f.e055.88
+   client-name carlos.santiago@resuelvetudeuda.com
+!
+ip dhcp pool Eduardo_Acaju_LAPTOP
+   host 192.168.216.23 255.255.255.0
+   client-identifier 01ac.74b1.7bb9.d4
+   client-name eduardo.fernandez@resuelvetusfinanzas.com
+!
+ip dhcp pool Angela_Quiroz_LAP
+   host 192.168.216.31 255.255.255.0
+   client-identifier 019c.305b.df03.4d
+   client-name angela.quiroz@resuelvetudeuda.com
+!
+ip dhcp pool Fernando_Maldonado_LAPTOP
+   host 192.168.216.146 255.255.255.0
+   client-identifier 0128.11a8.c0d1.5e
+   client-name fernando.maldonado@resuelve.mx
+!
+ip dhcp pool David_Martin_LAPTOP
+   host 192.168.216.35 255.255.255.0
+   client-identifier 013c.f011.2023.8f
+   client-name david.martindelcampo@resuelve.mx
+!
+ip dhcp pool Jose_Ramirez_LAPTOP
+   host 192.168.216.52 255.255.255.0
+   client-identifier 0170.a6cc.a212.e6
+   client-name rramirez@resuelve.mx
+!
+ip dhcp pool Ericka_Lopez_LAPTOP
+   host 192.168.216.56 255.255.255.0
+   client-identifier 0128.11a8.20f1.f2
+   client-name erika.lopezv@resuelvetudeuda.com
+!
+ip dhcp pool Erick_Javier_Zepeda_MOVIL
+   host 192.168.216.156 255.255.255.0
+   client-identifier 01a4.ccb9.39ca.93
+   client-name jazepeda@resuelve.mx
+!
+ip dhcp pool Roberto_Carlos_LAPTOP
+   host 192.168.217.155 255.255.255.0
+   client-identifier 0128.11a8.1e5a.eb
+   client-name rcbernal@resuelve.mx
+!
+ip dhcp pool Rodolfo_Zuniga_LAPTOP
+   host 192.168.216.74 255.255.255.0
+   client-identifier 01f8.da0c.2c58.3f
+   client-name rozuniga@resuelvetudeuda.com
+!
+ip dhcp pool eunice_arzate_laptop
+   host 192.168.216.75 255.255.255.0
+   client-identifier 0198.2cbc.7770.ae
+   client-name eunice.arzate@resuelve.mx
+!
+ip dhcp pool miroslava_briseno_laptop
+   host 192.168.216.9 255.255.255.0
+   client-identifier 019c.305b.027d.65
+   client-name miroslava_briseno_laptop
+!
+ip dhcp pool arnulfo_reyes_comedor
+   host 192.168.216.10 255.255.255.0
+   client-identifier 0174.e543.0baa.9a
+   client-name arnulfo_reyes_comedor
+!
+ip dhcp pool Patrick_Galvan_Movil
+   host 192.168.216.62 255.255.255.0
+   client-identifier 01a8.817e.d798.15
+   client-name Patrick_Galvan_Movil
+!
+ip dhcp pool Gabriel_Gomez_LAPTOP
+   host 192.168.216.60 255.255.255.0
+   client-identifier 0118.6590.da9f.9f
+   client-name gabriel.gomez@latasa.mx
+!
+ip dhcp pool Hector_Mendoza_LAP
+   host 192.168.216.58 255.255.255.0
+   client-identifier 0128.11a8.1ddd.00
+   client-name hmendoza@resuelvetudeuda.com
+!
+ip dhcp pool Yolanda_Gonzalez_LAP
+   host 192.168.216.112 255.255.255.0
+   client-identifier 013c.f011.1ff4.28
+   client-name yolanda.gonzalez@resuelve.mx
+!
+ip dhcp pool victoria.acosta_laptop
+   host 192.168.217.10 255.255.255.0
+   client-identifier 01a4.cf99.92d6.ef
+   client-name victoria.acosta@resuelve.mx
+!
+ip dhcp pool christian_sanchez_laptop
+   host 192.168.216.7 255.255.255.0
+   client-identifier 0128.11a8.2110.79
+   client-name christian.sanchez@resuelvetudeuda.com
+!
+ip dhcp pool viridiana_ponce_laptop
+   host 192.168.217.11 255.255.255.0
+   client-identifier 0164.8099.fdbf.a9
+   client-name viridiana.ponce_laptop
+!
+ip dhcp pool Sindy_Hernandez_MOVIL
+   host 192.168.216.185 255.255.255.0
+   client-identifier 01a2.19a0.b356.26
+   client-name sindy.hernandez@latasa.mx
+!
+ip dhcp pool Edgar_Ferrnando
+   host 192.168.216.16 255.255.255.0
+   client-identifier 019a.1341.048c.fe
+   client-name edgar.torres@resuelve.mx
+!
+ip dhcp pool Octavio_Pardo_LAPTOP
+   host 192.168.216.5 255.255.255.0
+   client-identifier 0164.8099.fd42.2e
+   client-name octavio.pardo@resuelvetudeuda.com
+!
+ip dhcp pool Arnulfo_Chef_EQUIPO
+   host 192.168.216.14 255.255.255.0
+   client-identifier 0174.e543.101a.19
+   client-name arnulfoc.reyes@resuelve.mx
+!
+ip dhcp pool karena_celis_laptop
+   host 192.168.216.4 255.255.255.0
+   client-identifier 011c.4d70.7f13.04
+   client-name karena.celis@resuelve.mx
+!
+ip dhcp pool Jose_Fosado_LAPTOP
+   host 192.168.216.119 255.255.255.0
+   client-identifier 01f8.da0c.20a7.09
+   client-name jose.fosado@resuelvetudeuda.com
+!
+ip dhcp pool Andres_Guizar_MOVIL
+   host 192.168.216.123 255.255.255.0
+   client-identifier 012e.400e.63d6.e8
+   client-name andres.guizar@latasa.mx
+!
+ip dhcp pool Regina_Urbina_MOVILPRUEBA
+   host 192.168.216.124 255.255.255.0
+   client-identifier 01fc.0296.f6f5.83
+   client-name regina.urbina@resuelve.mx
+!
+ip dhcp pool Regina_Urbina_MOVILPRUEBA2
+   host 192.168.216.129 255.255.255.0
+   client-identifier 01b2.8f25.a97f.10
+   client-name regina.urbina@resuelve.mx
+!
+ip dhcp pool Spencer_Flores_LAPPER_LAN
+   host 192.168.201.250 255.255.255.0
+   client-identifier 0100.e04c.6800.29
+   client-name spencer.floresp@resuelvetudeuda.com
+!
+ip dhcp pool Diana_Hernandez_LAPPER_LAN
+   host 192.168.201.251 255.255.255.0
+   client-identifier 01b4.b686.d85e.5b
+   client-name diana.hbastida@resuelvetudeuda.com
+!
+ip dhcp pool WIFI_RTD_MX
+   import all
+   network 192.168.244.0 255.255.254.0
+   default-router 192.168.245.254
+   dns-server 192.168.222.210 192.168.222.253 8.8.8.8
+   lease 0 6
+!
+ip dhcp pool Aida_Centeno_MOVIL
+   host 192.168.216.93 255.255.255.0
+   hardware-address a8a1.98bd.b362
+   client-name AIDAMOVIL
+!
+ip dhcp pool Luis_Pastrana_LAPTOP
+   host 192.168.216.55 255.255.255.0
+   client-identifier 0164.8099.d5ca.f5
+   client-name luis.pastrana@resuelve.mx
+!
+ip dhcp pool Adalberto_Padilla_LAPTOP
+   host 192.168.216.19 255.255.255.0
+   client-identifier 0128.11a8.2024.2f
+   client-name luis.pastrana@resuelve.mx
+!
+ip dhcp pool Omar_Fragoso_IPHONE
+   host 192.168.218.109 255.255.255.0
+   client-identifier 0132.5758.ecc7.89
+   client-name ofragoso@resuelvetudeuda.com
+!
+ip dhcp pool Omar_Fragoso_ANDROID
+   host 192.168.218.111 255.255.255.0
+   client-identifier 01ae.9e52.5079.0f
+   client-name ofragoso@resuelvetudeuda.com
+!
+ip dhcp pool Uziel_Salazar_LAPTOP
+   host 192.168.216.25 255.255.255.0
+   client-identifier 0140.ec99.5891.20
+   client-name uziel.svillalobos@resuelve.mx
+!
+ip dhcp pool Margarita_Valverde_MOVIL
+   host 192.168.216.98 255.255.255.0
+   client-identifier 01c4.a052.87e4.75
+   client-name MargaritaValverdeANDROID
+!
+ip dhcp pool Jose_Avalos_LAPTOP
+   host 192.168.216.26 255.255.255.0
+   client-identifier 0108.aa55.f06d.38
+   client-name jose.avalos@resuelvetudeuda.com
+!
+ip dhcp pool Enrique_Morf_Laptop
+   host 192.168.218.7 255.255.255.0
+   client-identifier 013c.0630.32b7.10
+   client-name morf@resuelve.mx
+!
+ip dhcp pool Enrique_Morf_MC3vil
+   host 192.168.218.8 255.255.255.0
+   client-identifier 01dc.e55b.059d.eb
+   client-name morf@resuelve.mx
+!
+ip dhcp pool Pamela_Cruces_LAPTOP
+   host 192.168.216.29 255.255.255.0
+   client-identifier 019c.305b.02aa.f1
+   client-name pamela.garduno@resuelvetudeuda.com
+!
+ip dhcp pool Brenda_Aleli_LAPTOP
+   host 192.168.216.32 255.255.255.0
+   client-identifier 01e4.029b.13b8.57
+   client-name brenda.trejo@resuelvetudeuda.com
+!
+ip dhcp pool Juan_Pablo_IPAD
+   host 192.168.218.37 255.255.255.0
+   client-identifier 0150.de06.20f7.aa
+   client-name JuanPabloLAPTOP
+!
+ip dhcp pool Juan_Carlos_Gon_LAPTOP
+   host 192.168.218.106 255.255.255.0
+   client-identifier 0100.24d6.c38e.da
+   client-name elconta@resuelve.mx
+!
+ip dhcp pool Javier_Salmeron_MOVIL
+   host 192.168.218.14 255.255.255.0
+   client-identifier 0146.2324.e5cf.06
+   client-name gvargasf@resuelve.mx
+!
+ip dhcp pool Brayan_Galeana_MOVIL
+   host 192.168.217.51 255.255.255.0
+   client-identifier 01ee.6da9.ab0a.7f
+   client-name brayan.galeana@resuelve.mx
+!
+ip dhcp pool Maritza_Castaneda_MOVIL
+   host 192.168.217.62 255.255.255.0
+   client-identifier 0116.db49.dd97.7e
+   client-name maritza@resuelve.mx
+!
+ip dhcp pool Roberto_Carlos_MOVIL
+   host 192.168.217.156 255.255.255.0
+   client-identifier 01e8.8843.d1e1.e3
+   client-name rcbernal@resuelve.mx
+!
+ip dhcp pool Abraham_Pech_LAPTOP
+   host 192.168.217.13 255.255.255.0
+   client-identifier 0138.f9d3.ceea.6f
+   client-name abraham.pech@resuelve.mx
+!
+ip dhcp pool Enrique_Diaz_LAPTOP
+   host 192.168.217.14 255.255.255.0
+   client-identifier 01a4.cf99.8905.1c
+   client-name enriqueadiaz@resuelve.mx
+!
+ip dhcp pool Rodrigo_Cue_LAPTOP
+   host 192.168.217.19 255.255.255.0
+   client-identifier 01a4.cf99.7dc1.af
+   client-name rodrigo.cue@resuelve.mx
+!
+ip dhcp pool Rurbinas_LAPTOP
+   host 192.168.217.20 255.255.255.0
+   client-identifier 013c.22fb.1f49.da
+   client-name rurbinas@resuelve.mx
+!
+ip dhcp pool Vanessa_Garcia_LAPTOP
+   host 192.168.217.25 255.255.255.0
+   client-identifier 0138.f9d3.4a01.ca
+   client-name vanessa.garcia@resuelve.mx
+!
+ip dhcp pool Charly_Rock_LAPTOP
+   host 192.168.217.31 255.255.255.0
+   client-identifier 013c.0630.3062.f8
+   client-name charlyrock@resuelve.mx
+!
+ip dhcp pool Christie_Moo_LAPTOP
+   host 192.168.217.52 255.255.255.0
+   client-identifier 01b4.0ede.2fd1.f9
+   client-name christie.moo@resuelve.mx
+!
+ip dhcp pool MA_Elena_LAPTOP
+   host 192.168.217.83 255.255.255.0
+   client-identifier 0128.11a8.1d9b.11
+   client-name ma.elena@resuelve.mx
+!
+ip dhcp pool MA_Elena_MOVIL
+   host 192.168.217.82 255.255.255.0
+   client-identifier 019c.ea97.2428.cc
+   client-name ma.elena@resuelve.mx
+!
+ip dhcp pool Kary_LAPTOP
+   host 192.168.217.35 255.255.255.0
+   client-identifier 013c.22fb.0a05.4c
+   client-name kary@resuelve.mx
+!
+ip dhcp pool Alex_Vazquez_LAPTOP
+   host 192.168.217.36 255.255.255.0
+   client-identifier 0128.11a8.1e31.10
+   client-name alex.vazquez@resuelve.mx
+!
+ip dhcp pool Aperezc_LAPTOP
+   host 192.168.217.40 255.255.255.0
+   client-identifier 0140.ec99.5bd0.f6
+   client-name aperezc@resuelve.mx
+!
+ip dhcp pool Capipo_LAPTOP
+   host 192.168.217.44 255.255.255.0
+   client-identifier 0170.9cd1.35bc.d1
+   client-name capipo@resuelve.mx
+!
+ip dhcp pool Emmanuel_Olvera_LAPTOP
+   host 192.168.217.58 255.255.255.0
+   client-identifier 01b4.0ede.2ebd.05
+   client-name emmanuel.olvera@resuelve.mx
+!
+ip dhcp pool Rafael_Ramirez_LAPTOP
+   host 192.168.217.61 255.255.255.0
+   client-identifier 01b4.0ede.2ebb.93
+   client-name rafael.ramirez@resuelve.mx
+!
+ip dhcp pool Angel_Ramirez_LAPTOP
+   host 192.168.217.32 255.255.255.0
+   client-identifier 01a4.cf99.6f94.5f
+   client-name angel.ramirez@resuelve.mx
+!
+ip dhcp pool Rossana_LAPTOP
+   host 192.168.217.79 255.255.255.0
+   client-identifier 013c.0630.1631.f3
+   client-name rossana@resuelve.mx
+!
+ip dhcp pool Ivan_Villa_LAPTOP
+   host 192.168.217.102 255.255.255.0
+   client-identifier 01f0.1898.89f4.07
+   client-name ivan.villa@resuelve.mx
+!
+ip dhcp pool Israel_Martinez_LAPTOP
+   host 192.168.217.104 255.255.255.0
+   client-identifier 0136.71a6.1d4d.a5
+   client-name israel.martinez@resuelve.mx
+!
+ip dhcp pool Jestor_LAPTOP
+   host 192.168.217.106 255.255.255.0
+   client-identifier 01b0.be83.46c3.b2
+   client-name jestor@resuelve.mx
+!
+ip dhcp pool Esme_Lop_LAPTOP
+   host 192.168.217.138 255.255.255.0
+   client-identifier 0128.11a8.1d97.32
+   client-name esme.lop@resuelve.mx
+!
+ip dhcp pool Humberto_LAPTOP
+   host 192.168.217.129 255.255.255.0
+   client-identifier 0104.56e5.30ed.a5
+   client-name humbertoch@resuelve.mx
+!
+ip dhcp pool Carlos_Vargas_Lap3
+   host 192.168.217.56 255.255.255.0
+   client-identifier 01b2.df39.28bc.ec
+   client-name carlos.vargas@resuelve.mx
+!
+ip dhcp pool Esme_Lop_MOVIL
+   host 192.168.217.141 255.255.255.0
+   client-identifier 013c.a2c3.fb24.aa
+   client-name esme.lop@resuelve.mx
+!
+ip dhcp pool Javi_IPAD
+   host 192.168.218.38 255.255.255.0
+   client-identifier 0150.de06.2810.22
+   client-name javi@resuelve.mx
+!
+ip dhcp pool Guillermo_Villegas_LAPTOP
+   host 192.168.218.118 255.255.255.0
+   client-identifier 013c.0630.3451.45
+   client-name jsalmeron@resuelvetudeuda.com
+!
+ip dhcp pool Jorge_Pedrosa_LAPTOP
+   host 192.168.216.71 255.255.255.0
+   client-identifier 018c.8590.b92a.81
+   client-name jorge.pedrosa@resuelve.mx
+!
+ip dhcp pool Miguel_Medina_LAPTOP
+   host 192.168.216.48 255.255.255.0
+   client-identifier 0164.8099.f757.88
+   client-name miguel.medinas@resuelve.mx
+!
+ip dhcp pool Bruno_Lopez_LAPTOP
+   host 192.168.216.37 255.255.255.0
+   client-identifier 01f4.d108.0b54.50
+   client-name bruno.lopez@resuelve.mx
+!
+ip dhcp pool Cynthia_Ramirez_LAPTOP
+   host 192.168.218.79 255.255.255.0
+   client-identifier 0164.8099.ce6c.e2
+   client-name cynthia.ramirez@resuelve.mx
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_50
+   host 192.168.227.150 255.255.255.0
+   client-identifier 01d6.8e8f.dae5.25
+   client-name guillermo.lujano@resuelvetudeuda.com
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_51
+   host 192.168.227.151 255.255.255.0
+   client-identifier 0108.aa55.f07c.44
+   client-name paola.sevilla@resuelvetudeuda.com
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_53
+   host 192.168.227.153 255.255.255.0
+   client-identifier 0108.aa55.f06c.90
+   client-name edgar.santiago@resuelvetudeuda.com
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_54
+   host 192.168.227.154 255.255.255.0
+   client-identifier 0108.aa55.f06f.0e
+   client-name jesus.zuniga@resuelvetudeuda.com
+!
+ip dhcp pool Alan_Orozco_LAPTOP
+   host 192.168.218.39 255.255.255.0
+   client-identifier 01b4.0ede.2eb6.0c
+   client-name alejandro.orozco@resuelve.mx
+!
+ip dhcp pool Juan_Carlos_Iphone
+   host 192.168.218.55 255.255.255.0
+   client-identifier 016e.0a72.34c5.8b
+   client-name jcballes
+!
+ip dhcp pool Jesus_Rodriguez_LAPTOP
+   host 192.168.218.56 255.255.255.0
+   client-identifier 0138.f9d3.5687.d3
+   client-name adrian.rodriguez@resuelve.mx
+!
+ip dhcp pool Paola_Araujo_LAPTOP
+   host 192.168.218.23 255.255.255.0
+   client-identifier 0114.7dda.e301.27
+   client-name paola.araujo@resuelve.mx
+!
+ip dhcp pool Pamela_Cardenas_LAPTOP
+   host 192.168.218.24 255.255.255.0
+   client-identifier 0114.7dda.4133.8f
+   client-name pcardenas@resuelve.mx
+!
+ip dhcp pool Arturo_Griffin_LAPTOP
+   host 192.168.218.11 255.255.255.0
+   client-identifier 01a0.7817.5b92.52
+   client-name arturo@resuelve.mx
+!
+ip dhcp pool Arturo_Griffin_MOVIL
+   host 192.168.218.12 255.255.255.0
+   client-identifier 01b2.6341.9700.a2
+   client-name arturo@resuelve.mx
+!
+ip dhcp pool Arturo_Griffin_IPAD
+   host 192.168.218.17 255.255.255.0
+   client-identifier 018a.f9cc.469c.cb
+   client-name arturo@resuelve.mx
+!
+ip dhcp pool Diego_Pailles_LAPTOP
+   host 192.168.218.15 255.255.255.0
+   client-identifier 0144.032c.d7ed.b7
+   client-name DiegoPaillesLAPTOP
+!
+ip dhcp pool Sarahi_Serrano_LAPTOP
+   host 192.168.218.34 255.255.255.0
+   client-identifier 01a4.83e7.8883.fb
+   client-name sserrano@resuelve.mx
+!
+ip dhcp pool Alex_Vazquez_MOVIL
+   host 192.168.217.72 255.255.255.0
+   client-identifier 01da.4145.67e1.18
+   client-name alex.vazquez@resuelve.mx
+!
+ip dhcp pool Jennifer_Santos_MOVIL
+   host 192.168.217.60 255.255.255.0
+   client-identifier 0154.32c7.e705.71
+   client-name jennifer.santos@resuelve.mx
+!
+ip dhcp pool Roxana_Suarez_Macbook
+   host 192.168.218.104 255.255.255.0
+   client-identifier 01e0.b55f.ef4e.da
+   client-name roxana@resuelve.mx
+!
+ip dhcp pool Roxana_Suarez_MOVIL
+   host 192.168.218.105 255.255.255.0
+   client-identifier 0160.57c8.2266.02
+   client-name roxana@resuelve.mx
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_55
+   host 192.168.227.155 255.255.255.0
+   client-identifier 0108.aa55.f069.95
+   client-name sonia.salinas@resuelvetudeuda.com
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_56
+   host 192.168.227.156 255.255.255.0
+   client-identifier 0108.aa55.f06d.38
+   client-name jose.avalos@resuelvetudeuda.com
+!
+ip dhcp pool Jose_Gomez_LAPTOP
+   host 192.168.218.41 255.255.255.0
+   client-identifier 0128.11a8.1ca9.4e
+   client-name jose.gomez@resuelvetudeuda.com
+!
+ip dhcp pool Adonnay_Marquez_MOVIL
+   host 192.168.216.40 255.255.255.0
+   client-identifier 012e.df44.c113.21
+   client-name rmarquez@resuelve.mx
+!
+ip dhcp pool Adonnay_Marquez_LAPTOP
+   host 192.168.216.41 255.255.255.0
+   client-identifier 01a4.1731.a8fe.47
+   client-name rmarquez@resuelve.mx
+!
+ip dhcp pool Rodrigo_Alcantara_MOVIL
+   host 192.168.216.42 255.255.255.0
+   client-identifier 0184.a134.7ed1.a0
+   client-name rodrigo.alcantara@resuelve.mx
+!
+ip dhcp pool Roberto_Pavon_LAPTOP
+   host 192.168.216.160 255.255.255.0
+   client-identifier 0148.e244.0211.e9
+   client-name luis.pavon@resuelve.mx
+!
+ip dhcp pool Roberto_Pavon_MOVIL
+   host 192.168.216.161 255.255.255.0
+   client-identifier 01b8.7bc5.7d59.8d
+   client-name luis.pavon@resuelve.mx
+!
+ip dhcp pool Magdalena_Martinez_LAPTOP
+   host 192.168.216.165 255.255.255.0
+   client-identifier 0164.8099.f0c0.2b
+   client-name jacqueline.hernandez@resuelve.mx
+!
+ip dhcp pool Magdalena_Martinez_MOVIL
+   host 192.168.216.166 255.255.255.0
+   client-identifier 0146.f29b.b9d7.89
+   client-name jacqueline.hernandez@resuelve.mx
+!
+ip dhcp pool Abraham_Allende_Movil
+   host 192.168.217.29 255.255.255.0
+   client-identifier 0192.d83a.baa9.9a
+   client-name abraham@resuelve.mx
+!
+ip dhcp pool Armando_Calzada_MOVIL
+   host 192.168.217.93 255.255.255.0
+   client-identifier 0188.9f6f.a578.f0
+   client-name acalzadas@resuelve.mx
+!
+ip dhcp pool MOVIL_CREDITOMX_24
+   host 192.168.227.135 255.255.255.0
+   client-identifier 01d4.63c6.97bd.76
+   client-name eduardo.resendiz@resuelvetudeuda.com
+!
+ip dhcp pool SEGURIDAD_MOVIL
+   host 192.168.216.196 255.255.255.0
+   client-identifier 0186.f50e.0210.98
+   client-name SEGURIDADMOVIL
+!
+ip dhcp pool Maria_Cristina_MOVIL
+   host 192.168.216.221 255.255.255.0
+   client-identifier 01b6.43c0.8ac2.4e
+   client-name maria.valle@resuelve.mx
+!
+ip dhcp pool Leslie_Espinoza_LAPTOP
+   host 192.168.216.50 255.255.255.0
+   client-identifier 0134.6895.088f.fd
+   client-name leslie.espinozah@resuelvetusfinanzas.com
+!
+ip dhcp pool Angelica_Montoya_MOVIL
+   host 192.168.218.107 255.255.255.0
+   client-identifier 015e.68e9.d49d.92
+   client-name angelica.montoya@resuelve.mx
+!
+ip dhcp pool Francisco_Ramirez_LAPTOP
+   host 192.168.218.160 255.255.255.0
+   client-identifier 0150.e085.0023.8c
+   client-name francisco.ramirez@resuelve.mx
+!
+ip dhcp pool Christie_Moo_MOVIL
+   host 192.168.217.33 255.255.255.0
+   client-identifier 01e6.07d2.e029.36
+   client-name christie.moo@resuelve.mx
+!
+ip dhcp pool Jonathan_Bustillos_LAPTOP
+   host 192.168.217.113 255.255.255.0
+   client-identifier 013c.58c2.8215.31
+   client-name jonathan.bustillos@resuelve.mx
+!
+ip dhcp pool Jose_Becerril_LAPTOP
+   host 192.168.218.82 255.255.255.0
+   client-identifier 0138.f9d3.d9cc.47
+   client-name jose.becerril@latasa.mx
+!
+ip dhcp pool Ismael_Jimenez_LAPTOP
+   host 192.168.216.8 255.255.255.0
+   client-identifier 01e8.9eb4.5489.65
+   client-name ismael.jimenez@resuelvetudeuda.com
+!
+ip dhcp pool Carlos_Flores_LAPTOP
+   host 192.168.217.84 255.255.255.0
+   client-identifier 01a0.7817.a10a.79
+   client-name carlos.flores@resuelve.mx
+!
+ip dhcp pool jose_Negrete_LAPTOP
+   host 192.168.216.30 255.255.255.0
+   client-identifier 0128.11a8.20f1.a7
+   client-name jose.rnegrete@resuelvetudeuda.com
+!
+ip dhcp pool Janette_Ramirez_LAPTOP
+   host 192.168.216.211 255.255.255.0
+   client-identifier 0164.8099.ed04.09
+   client-name jramirezp@resuelvetudeuda.com
+!
+ip dhcp pool Barbara_Munoz_LAPTOP
+   host 192.168.216.187 255.255.255.0
+   client-identifier 0134.6895.404b.a7
+   client-name barbara.munoz@resuelvetudeuda.com
+!
+ip dhcp pool Daniela_Ramirez_LAPTOP
+   host 192.168.216.214 255.255.255.0
+   client-identifier 01c0.b5d7.a1e0.6b
+   client-name daniela.ramirez@resuelve.mx
+!
+ip dhcp pool MOVIL_LATASAMX_1
+   host 192.168.227.92 255.255.255.0
+   client-identifier 0156.9602.89e9.90
+   client-name carmen.ceballos@latasa.mx
+!
+ip dhcp pool MOVIL_LATASAMX_2
+   host 192.168.227.34 255.255.255.0
+   hardware-address 403f.8c47.bbe7
+   client-name luisa.resendiz@latasa.mx
+!
+ip dhcp pool MOVIL_CREDITOMX_25
+   host 192.168.227.35 255.255.255.0
+   hardware-address 403f.8c1f.4425
+   client-name hgarcia@resuelvetudeuda.com
+!
+ip dhcp pool MOVIL_LATASAMX_3
+   host 192.168.227.36 255.255.255.0
+   client-identifier 0108.aa55.da6e.b5
+   client-name ariana.briones@latasa.mx
+!
+ip dhcp pool Elizabeth_Sosa_LAPTOP
+   host 192.168.216.162 255.255.255.0
+   client-identifier 0128.11a8.1e82.0a
+   client-name elizabeth.sosa@resuelve.mx
+!
+ip dhcp pool Estefany_Hernandez_LAPTOP
+   host 192.168.218.54 255.255.255.0
+   client-identifier 0114.7dda.40e8.49
+   client-name estefany.hernandez@resuelve.mx
+!
+ip dhcp pool Erick_Orihuela1_LAPTOP
+   host 192.168.217.86 255.255.255.0
+   client-identifier 01a0.7817.99e5.0c
+   client-name erick.orihuela@resuelve.mx
+!
+ip dhcp pool Jesus_Escamilla_LAPTOP
+   host 192.168.217.7 255.255.255.0
+   client-identifier 01c4.03a8.bb2e.84
+   client-name jesus@resuelve.mx
+!
+ip dhcp pool espacios_movil
+   host 192.168.216.219 255.255.255.0
+   client-identifier 01b6.21d4.64c0.86
+   client-name espacios_movil
+!
+ip dhcp pool Brayan_Galeana_LAPTOP
+   host 192.168.217.6 255.255.255.0
+   client-identifier 0148.a472.53ec.6f
+   client-name brayan.galeana@resuelve.mx
+!
+ip dhcp pool Monitoreo_DataDog
+   host 192.168.217.119 255.255.255.0
+   client-identifier 0100.08ca.e25f.00
+   client-name DataDog
+!
+ip dhcp pool Ivan_Coronel_MOVIL
+   host 192.168.217.132 255.255.255.0
+   client-identifier 0142.5fa8.5888.24
+   client-name ivan.coronel@resuelve.mx
+!
+ip dhcp pool Ivan_Coronel_LAPTOP
+   host 192.168.217.133 255.255.255.0
+   client-identifier 0128.11a8.20af.67
+   client-name ivan.coronel@resuelve.mx
+!
+ip dhcp pool Camila_Diaz_LAPTOP
+   host 192.168.218.52 255.255.255.0
+   client-identifier 01ac.d564.a92d.7d
+   client-name camila.dbolanos@resuelve.mx
+!
+ip dhcp pool Jade_Cuellar_LAPTOP
+   host 192.168.218.91 255.255.255.0
+   client-identifier 014c.3275.9735.a5
+   client-name jade.cuellar@resuelve.mx
+!
+ip dhcp pool Donovan_Arturo_MOVIL
+   host 192.168.216.28 255.255.255.0
+   client-identifier 0174.428b.3105.8e
+   client-name donovan.mendez@resuelvetudeuda.com
+!
+ip dhcp pool Guillermo_Villegas_MOVIL
+   host 192.168.218.88 255.255.255.0
+   client-identifier 01b4.85e1.c010.84
+   client-name memo
+!
+ip dhcp pool Datadog_Cable
+   host 192.168.212.1 255.255.255.0
+   client-identifier 01e4.3a6e.1d92.cb
+   client-name devops-mx
+!
+ip dhcp pool Patick_Galvan_LAPTOP
+   host 192.168.218.50 255.255.255.0
+   client-identifier 019c.3e53.8fc4.87
+   client-name patrick@resuelvetudeuda.co
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_57
+   host 192.168.227.157 255.255.255.0
+   client-identifier 0124.46c8.9f0f.44
+   client-name melenye.rebolledo@resuelvetudeuda.com
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_58
+   host 192.168.227.158 255.255.255.0
+   hardware-address 483f.e9eb.c65c
+   client-name mhernandez@resuelvetudeuda.com
+!
+ip dhcp pool Federico_Poo_LAPTOP
+   host 192.168.218.46 255.255.255.0
+   client-identifier 011c.57dc.4a4e.54
+   client-name federico.poo@resuelve.mx
+!
+ip dhcp pool MOVIL_FINANZAS_1
+   host 192.168.227.200 255.255.255.0
+   client-identifier 0190.633b.e5d3.a9
+   client-name isaac.victoria@resuelvetusfinanzas.com
+!
+ip dhcp pool Ariana_Wendoly_Escritorio_LAN
+   host 192.168.203.11 255.255.255.0
+   client-identifier 01e4.3a6e.1217.80
+   client-name ariana.briones@latasa.mx
+!
+ip dhcp pool Osmar_Alexis_Escritorio_LAN
+   host 192.168.203.12 255.255.255.0
+   client-identifier 01e4.3a6e.1217.7b
+   client-name alexis.martinez@latasa.mx
+!
+ip dhcp pool Noemi_Reyes_Escritorio_LAN
+   host 192.168.203.13 255.255.255.0
+   client-identifier 01e4.3a6e.1218.1a
+   client-name noemi.reyes@latasa.mx
+!
+ip dhcp pool MOVIL_LATASAMX_4
+   host 192.168.227.38 255.255.255.0
+   client-identifier 0152.80b7.11c6.7b
+   client-name noemi.reyes@latasa.mx
+!
+ip dhcp pool Sergio_Guevara_LAPTOP
+   host 192.168.218.120 255.255.255.0
+   client-identifier 01f8.89d2.0222.e9
+   client-name sguevara@latasa.mx
+!
+ip dhcp pool Itzaya_Sanchez_LAP
+   host 192.168.217.67 255.255.255.0
+   client-identifier 01a0.7817.62c8.7b
+   client-name itzayana.sanchez@resuelve.mx
+!
+ip dhcp pool Laura_Moreno_LAPTOP
+   host 192.168.216.218 255.255.255.0
+   client-identifier 01b4.0ede.2fd1.f9
+   client-name laura.morenon@resuelve.mx
+!
+ip dhcp pool Ricardo_Kuri_LAPTOP
+   host 192.168.216.222 255.255.255.0
+   client-identifier 0164.8099.f0bf.95
+   client-name pablo.kuri@resuelve.mx
+!
+ip dhcp pool Diana_Johaly_LAPTOP
+   host 192.168.216.61 255.255.255.0
+   client-identifier 018c.8590.906c.5a
+   client-name diana.hernandez@resuelve.mx
+!
+ip dhcp pool Angelica_Montoya_LAPTOP
+   host 192.168.216.140 255.255.255.0
+   client-identifier 01a4.d18c.6009.92
+   client-name angelica.montoya@resuelve.mx
+!
+ip dhcp pool Jacqueline_Ruiz_MOVIL
+   host 192.168.216.38 255.255.255.0
+   client-identifier 01f4.0228.b503.b9
+   client-name jacqueline.ruiz@resuelve.mx
+!
+ip dhcp pool Guillermo_Villegas_MOVIL1
+   host 192.168.218.89 255.255.255.0
+   client-identifier 0154.ebe9.2b4c.06
+   client-name memo
+!
+ip dhcp pool Karina_Huerta_LAPTOP
+   host 192.168.217.136 255.255.255.0
+   client-identifier 013c.0630.1157.b3
+   client-name kary@resuelve.mx
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_59
+   host 192.168.227.159 255.255.255.0
+   client-identifier 0130.09c0.fe11.be
+   client-name dmorales@resuelvetudeuda.com
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_60
+   host 192.168.227.160 255.255.255.0
+   client-identifier 0130.09c0.fe10.68
+   client-name pcastrom@resuelvetudeuda.com
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_61
+   host 192.168.227.161 255.255.255.0
+   client-identifier 0130.09c0.fe12.eb
+   client-name carlos.santiago@resuelvetudeuda.com
+!
+ip dhcp pool Intendencia1_MOVIL
+   host 192.168.216.96 255.255.255.0
+   client-identifier 01de.ac79.c7f6.d9
+   client-name Pilar
+!
+ip dhcp pool Intendencia2_MOVIL
+   host 192.168.216.97 255.255.255.0
+   client-identifier 014a.d66a.c54a.e3
+   client-name Kari
+!
+ip dhcp pool MOVIL_FINANZAS_2
+   host 192.168.227.202 255.255.255.0
+   client-identifier 0130.09c0.fe13.4c
+   client-name acabrera@resuelve.mx
+!
+ip dhcp pool Juan_Pablo_MOVIL
+   host 192.168.218.4 255.255.255.0
+   client-identifier 014c.20b8.be47.07
+   client-name JuanPabloMOVIL
+!
+ip dhcp pool Carlos_Flores_MOVIL
+   host 192.168.217.103 255.255.255.0
+   client-identifier 0134.1cf0.f154.12
+   client-name carlos.flores@resuelve.mx
+!
+ip dhcp pool Samuel_Hernandez_Movil
+   host 192.168.216.171 255.255.255.0
+   client-identifier 0114.1f78.6a3e.47
+   client-name samuel.hernandez@resuelve.mx
+!
+ip dhcp pool LAP_Talento_ING
+   host 192.168.217.87 255.255.255.0
+   client-identifier 0140.b89a.177d.b3
+   client-name roxana@resuelve.mx
+!
+ip dhcp pool David_Avalos_MOVIL
+   host 192.168.218.117 255.255.255.0
+   client-identifier 0108.9542.4e17.30
+   client-name davalos@resuelvetudeuda.com
+!
+ip dhcp pool Eduardo_Cortes_LAPTOP
+   host 192.168.217.89 255.255.255.0
+   client-identifier 01d8.f3bc.623d.a1
+   client-name eduardo.cortes@resuelve.mx
+!
+ip dhcp pool Rodrigo_Tovilla_LAPPERSONAL
+   host 192.168.216.175 255.255.255.0
+   client-identifier 0198.01a7.cb6f.27
+   client-name rodrigo.tovilla@resuelve.mx
+!
+ip dhcp pool Rodrigo_Tovilla_MOVILPERSONAL
+   host 192.168.216.176 255.255.255.0
+   client-identifier 01e0.897e.4ed1.38
+   client-name rodrigo.tovilla@resuelve.mx
+!
+ip dhcp pool Isaias_Palestina1_MACBOOK
+   host 192.168.217.42 255.255.255.0
+   client-identifier 01a4.cf99.8025.b6
+   client-name ipalestina@resuelve.mx
+!
+ip dhcp pool Leonel_Camacho_MacBook
+   host 192.168.217.94 255.255.255.0
+   client-identifier 013c.0630.2ec1.b9
+   client-name leonel.camacho@resuelve.mx
+!
+ip dhcp pool Adriana_Cabrera_LAPTOP
+   host 192.168.216.6 255.255.255.0
+   client-identifier 01bc.17b8.733b.b0
+   client-name acabrera@resuelve.mx
+!
+ip dhcp pool Abraham_Allende_MACBOOK2
+   host 192.168.217.64 255.255.255.0
+   client-identifier 01a4.cf99.810c.3d
+   client-name AbrahamMac
+!
+ip dhcp pool Sarahi_Carrera_LAPTOP
+   host 192.168.216.122 255.255.255.0
+   client-identifier 018c.c84b.0398.65
+   client-name sarahi.carrera@resuelvetusfinanzas.com
+!
+ip dhcp pool Kevin_Baez_LAPTOP
+   host 192.168.216.33 255.255.255.0
+   client-identifier 0154.8d5a.de89.74
+   client-name kevin.baez@resuelvetusfinanzas.com
+!
+ip dhcp pool Omar_Moreno_LAPTOP
+   host 192.168.216.36 255.255.255.0
+   client-identifier 0164.8099.b92d.d2
+   client-name omar.moreno@resuelvetudeuda.com
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_63
+   host 192.168.227.163 255.255.255.0
+   client-identifier 0108.aa55.d9b2.0d
+   client-name arturo.castaneda@resuelvetudeuda.com
+!
+ip dhcp pool Jade_Cuellar_MOVIL
+   host 192.168.217.70 255.255.255.0
+   client-identifier 0180.54e3.363d.99
+   client-name jade.cuellar@resuelve.mx
+!
+ip dhcp pool Manuel_Gonzalez_LAPTOP
+   host 192.168.218.43 255.255.255.0
+   client-identifier 0118.2649.65af.ea
+   client-name manuel.gonzalez@resuelve.mx
+!
+ip dhcp pool Guillermo_Villegas_MACBOOK
+   host 192.168.218.90 255.255.255.0
+   client-identifier 01a4.cf99.7be7.45
+   client-name guillermo@resuelve.mx
+!
+ip dhcp pool Jimena_Soto_MACBOOK
+   host 192.168.216.27 255.255.255.0
+   client-identifier 014c.3275.9811.f9
+   client-name ana.soto@resuelvetudeuda.com
+!
+ip dhcp pool Vanessa_Garcia_Macbook
+   host 192.168.217.21 255.255.255.0
+   client-identifier 013c.0630.31b4.55
+   client-name vanessa.garcia@resuelve.mx
+!
+ip dhcp pool Ana_Pujana_MACBOOKPRO
+   host 192.168.216.34 255.255.255.0
+   client-identifier 01e0.b55f.ef4e.da
+   client-name ana.vallarta@resuelve.mx
+!
+ip dhcp pool Octavio_Juarez_MACBOOK
+   host 192.168.217.16 255.255.255.0
+   client-identifier 01a4.cf99.81f6.e1
+   client-name octavio.juarez@resuelve.mx
+!
+ip dhcp pool Maria_Luisa_Escritorio_LAN2
+   host 192.168.205.7 255.255.255.0
+   client-identifier 01e4.3a6e.1217.67
+   client-name luisa.resendiz@latasa.mx
+!
+ip dhcp pool Eric_Garcia_MACBOOK
+   host 192.168.217.43 255.255.255.0
+   client-identifier 01a4.cf99.93bd.11
+   client-name eric.cz@resuelve.mx
+!
+ip dhcp pool Marco_Esteban_LAPTOP
+   host 192.168.216.51 255.255.255.0
+   client-identifier 0128.11a8.c1dc.25
+   client-name marco.simon@resuelve.mx
+!
+ip dhcp pool CAM_REDES_1
+   host 192.168.217.183 255.255.255.0
+   client-identifier 0194.a408.2624.b4
+   client-name jesus@resuelve.mx
+!
+ip dhcp pool Carlos_Flores_MACBOOK
+   host 192.168.217.88 255.255.255.0
+   client-identifier 0154.32c7.6d4b.e5
+   client-name carlos.flores@resuelve.mx
+!
+ip dhcp pool Eduardo_Cortes_IPAD
+   host 192.168.217.47 255.255.255.0
+   client-identifier 01c8.89f3.423f.74
+   client-name eduardo.cortes@resuelve.mx
+!
+ip dhcp pool MOVIL_CREDITOMX_26
+   host 192.168.227.40 255.255.255.0
+   client-identifier 0164.4212.1fd8.b8
+   client-name sindy.hernandez@resuelvetudeuda.com
+!
+ip dhcp pool Brayan_Galeana_MACBOOK
+   host 192.168.217.12 255.255.255.0
+   client-identifier 0114.7dda.8f1a.99
+   client-name brayan.galeana@resuelve.mx
+!
+ip dhcp pool Alejandro_Orozco_Movil
+   host 192.168.216.67 255.255.255.0
+   client-identifier 01b8.144d.0d4b.11
+   client-name alejandro.orozco@resuelve.mx
+!
+ip dhcp pool Abraham_Allende_MOVIL2
+   host 192.168.217.23 255.255.255.0
+   client-identifier 01bc.32b2.6922.c5
+   client-name AbrahamSamsung
+!
+ip dhcp pool Roberto_Guerrero_MOVIL
+   host 192.168.216.54 255.255.255.0
+   client-identifier 01a8.9675.042a.b4
+   client-name rguerrero@resuelvetudeuda.com
+!
+ip dhcp pool Kate_LAPTOP
+   host 192.168.217.157 255.255.255.0
+   client-identifier 01a0.7817.6745.14
+   client-name kate
+!
+ip dhcp pool Kate_MOVIL
+   host 192.168.217.158 255.255.255.0
+   client-identifier 0130.7f10.a773.bb
+   client-name kate
+!
+ip dhcp pool Luis_Pastrana_MOVIL
+   host 192.168.216.105 255.255.255.0
+   client-identifier 0102.d249.9d66.a2
+   client-name luis.pastrana@resuelve.mx
+!
+ip dhcp pool Eduardo_Ley_LAPTOP
+   host 192.168.216.108 255.255.255.0
+   client-identifier 01a4.1731.a900.f3
+   client-name eduardo.ley@resuelve.mx
+!
+ip dhcp pool Mauricio_Olvera_LAPTOP
+   host 192.168.216.79 255.255.255.0
+   client-identifier 013c.6aa7.e3a8.e6
+   client-name mauricio.olivera@resuelve.mx
+!
+ip dhcp pool Erika_Lopez_MACBOOK
+   host 192.168.217.45 255.255.255.0
+   client-identifier 01a4.cf99.9152.18
+   client-name erika.lopez@resuelve.mx
+!
+ip dhcp pool Carlos_Vargas
+   host 192.168.217.159 255.255.255.0
+   client-identifier 01c4.03a8.bb2d.08
+   client-name carlos.vargas@resuelve.mx
+!
+ip dhcp pool Emilio_Mendoza_MACBOOK
+   host 192.168.217.54 255.255.255.0
+   client-identifier 01a4.cf99.8ab8.1f
+   client-name emilio@resuelve.mx
+!
+ip dhcp pool TV_Ing
+   host 192.168.217.160 255.255.255.0
+   client-identifier 01c0.238d.64bf.0c
+   client-name resuelve
+!
+ip dhcp pool Paulina_Urbina_MACBOOK
+   host 192.168.217.66 255.255.255.0
+   client-identifier 013c.0630.140f.9a
+   client-name rurbinas@resuelve.mx
+!
+ip dhcp pool Alejandro_Encarnacion_LAPTOP
+   host 192.168.216.157 255.255.255.0
+   client-identifier 01d8.0f99.7ab2.bd
+   client-name alejandro.encarnacion@resuelve.mx
+!
+ip dhcp pool Paulina_Urbina_MOVIL
+   host 192.168.217.90 255.255.255.0
+   client-identifier 01b4.56e3.0134.ca
+   client-name rurbinas@resuelve.mx
+!
+ip dhcp pool Luis_Enrique_LAPTOP
+   host 192.168.217.46 255.255.255.0
+   client-identifier 01b0.a460.7330.a2
+   client-name kike@resuelve.mx
+!
+ip dhcp pool Eduardo_Cortes_Alien
+   host 192.168.217.91 255.255.255.0
+   client-identifier 01c4.03a8.bab7.33
+   client-name eduardo.cortes@resuelve.mx
+!
+ip dhcp pool Alvaro_Lizama_MACBOOK
+   host 192.168.217.170 255.255.255.0
+   client-identifier 01a4.83e7.458a.ba
+   client-name alvaro@resuelve.mx
+!
+ip dhcp pool ALvaro_Lizama_MACBOOK2
+   host 192.168.217.171 255.255.255.0
+   client-identifier 01f0.1898.5bb7.8d
+   client-name alvaro@resuelve.mx
+!
+ip dhcp pool Alvaro_Lizama_MACBOOK3
+   host 192.168.217.172 255.255.255.0
+   client-identifier 01a0.7817.a229.87
+   client-name alvaro@resuelve.mx
+!
+ip dhcp pool Alvaro_Lizama_MOVIL
+   host 192.168.217.173 255.255.255.0
+   client-identifier 01f4.65a6.677d.e6
+   client-name alvaro@resuelve.mx
+!
+ip dhcp pool Alvaro_Lizama_MOVIL2
+   host 192.168.217.174 255.255.255.0
+   client-identifier 01e0.338e.1eb6.7b
+   client-name alvaro@resuelve.mx
+!
+ip dhcp pool Alvaro_Lizama_IPAD
+   host 192.168.217.175 255.255.255.0
+   client-identifier 01a6.99d0.b30a.10
+   client-name alvaro@resuelve.mx
+!
+ip dhcp pool Alvaro_Lizama_IPAD2
+   host 192.168.217.176 255.255.255.0
+   client-identifier 014c.2eb4.a5aa.8a
+   client-name alvaro@resuelve.mx
+!
+ip dhcp pool Alvaro_Lizama_MACBOOK_Temp
+   host 192.168.218.58 255.255.255.0
+!
+ip dhcp pool Alvaro_Lizama_MOVIL3
+   host 192.168.217.178 255.255.255.0
+   client-identifier 019e.9bb7.87c8.fe
+   client-name alvaro@resuelve.mx
+!
+ip dhcp pool Javier_Velazquez_MOVIL2
+   host 192.168.218.18 255.255.255.0
+   client-identifier 0184.8c8d.cefa.2c
+   client-name JavierVelazquezIPHONE
+!
+ip dhcp pool Oscar_Sanchez_LAPTOP
+   host 192.168.216.198 255.255.255.0
+   client-identifier 0164.8099.b92d.14
+   client-name oscar.sanchez@resuelve.mx
+!
+ip dhcp pool Manolo_Gonzalez_MOVIL
+   host 192.168.218.59 255.255.255.0
+   client-identifier 015c.50d9.ec6c.1b
+   client-name manuel.gonzalez@resuelve.mx
+!
+ip dhcp pool Manolo_Gonzalez_LAPTOP
+   host 192.168.218.60 255.255.255.0
+   client-identifier 011c.57dc.4d46.12
+   client-name manuel.gonzalez@resuelve.mx
+!
+ip dhcp pool Edgar_Torres_LAPP
+   host 192.168.216.22 255.255.255.0
+   client-identifier 0144.032c.60fe.0f
+   client-name edgar.torres@resuelve.mx
+!
+ip dhcp pool Melissa_Zeltzin_LAPTOP
+   host 192.168.216.43 255.255.255.0
+   client-identifier 018c.8590.a2ab.55
+   client-name melissa.hernandez@resuelve.mx
+!
+ip dhcp pool Rodrigo_Tovilla_LAPTOP
+   host 192.168.218.61 255.255.255.0
+   client-identifier 0164.8099.d5cd.ca
+   client-name rodrigo.tovilla@resuelve.mx
+!
+ip dhcp pool Jorge_Medina_LAPTOP
+   host 192.168.217.105 255.255.255.0
+   client-identifier 01b0.be83.4631.25
+   client-name jorge.medina@resuelve.mx
+!
+ip dhcp pool Jessica_Morales_LAPTOPP
+   host 192.168.216.76 255.255.255.0
+   client-identifier 01b4.0ede.2f1a.cf
+   client-name jessica.torres@resuelve.mx
+!
+ip dhcp pool Aldo_de_la_Torre_LAPTOP
+   host 192.168.216.203 255.255.255.0
+   client-identifier 0118.6590.d465.dd
+   client-name aldo.delatorre@resuelve.mx
+!
+ip dhcp pool David_Gonzalez_LAPTOP
+   host 192.168.216.39 255.255.255.0
+   client-identifier 01d8.f3bc.623d.a1
+   client-name david.gsantillan@resuelve.mx
+!
+ip dhcp pool Erick_Javier_Zepeda_LAPTOP
+   host 192.168.216.158 255.255.255.0
+   client-identifier 01d8.f2ca.710e.fd
+   client-name jazepeda@resuelve.mx
+!
+ip dhcp pool Regina_Conchello_LAPTOP
+   host 192.168.216.11 255.255.255.0
+   client-identifier 01a4.83e7.02c5.c3
+   client-name regina.conchello@resuelve.mx
+!
+ip dhcp pool Daniela_Lerma_LAPTOP
+   host 192.168.216.226 255.255.255.0
+   client-identifier 01c0.b5d7.a1eb.9d
+   client-name daniela.guzman@resuelve.mx
+!
+ip dhcp pool Brando_Rosales_LAPTOP
+   host 192.168.216.223 255.255.255.0
+   client-identifier 0160.dd8e.0540.ce
+   client-name brando.rosales@resuelvetudeuda.com
+!
+ip dhcp pool LAURA_IVONNE_LAP
+   host 192.168.216.103 255.255.255.0
+   client-identifier 01c0.b5d7.a1eb.99
+   client-name laura.monroy@resuelvetudeuda.com
+!
+ip dhcp pool Alejandro_Encarnacion_MOVILPER
+   host 192.168.216.80 255.255.255.0
+   client-identifier 015a.670a.4539.42
+   client-name alejandro.encarnacion@resuelve.mx
+!
+ip dhcp pool Daniel_Hernandez_LAPTOP
+   host 192.168.216.81 255.255.255.0
+   client-identifier 0170.a6cc.9c23.ea
+   client-name daniel.hgarcia@resuelve.mx
+!
+ip dhcp pool Giovanni_Reyes_MOVIL
+   host 192.168.217.116 255.255.255.0
+   client-identifier 01e4.bcaa.d984.91
+   client-name giovanni.reyes@resuelve.mx
+!
+ip dhcp pool Max_Toledo_MACBOOK
+   host 192.168.218.81 255.255.255.0
+   client-identifier 013c.22fb.1f4a.58
+   client-name maximiliano.toledo@resuelve.mx
+!
+ip dhcp pool Camila_Zaleta_LAPTOPP
+   host 192.168.216.69 255.255.255.0
+   client-identifier 01f0.1898.01bc.2f
+   client-name camila.garcia@resuelve.mx
+!
+ip dhcp pool Sergio_Pina_Macbook
+   host 192.168.217.34 255.255.255.0
+   client-identifier 0188.e9fe.6764.ce
+   client-name sergio.pina@resuelve.mx
+!
+ip dhcp pool MOVIL_NEGOCIACIONMX_52
+   host 192.168.227.152 255.255.255.0
+   client-identifier 0110.89fb.8977.be
+   client-name cristina.herrera@resuelvetudeuda.com
+!
+ip dhcp pool Viridiana_Ponce_LAPP
+   host 192.168.216.65 255.255.255.0
+   client-identifier 01f0.1898.8be8.00
+   client-name viridiana.ponce@resuelve.mx
+!
+ip dhcp pool Erick_Rios_LAPTOP
+   host 192.168.216.150 255.255.255.0
+   client-identifier 0118.cf5e.6d02.ee
+   client-name erick.rios@resuelvetudeuda.com
+!
+ip dhcp pool Enrique_Espinoza_LAPTOP
+   host 192.168.217.63 255.255.255.0
+   client-identifier 01c4.03a8.cff4.e5
+   client-name eespinoza@resuelve.mx
+!
+ip dhcp pool Doctora_Movil
+   host 192.168.216.172 255.255.255.0
+   client-identifier 01cc.464e.8c96.78
+   client-name doctora.movil
+!
+ip dhcp pool G7
+   host 192.168.217.161 255.255.255.0
+   client-identifier 0100.4238.4d29.48
+   client-name G7
+!
+ip dhcp pool Aremi_Allende_MOVIL
+   host 192.168.216.70 255.255.255.0
+   client-identifier 01d8.dc40.3053.49
+   client-name renee.allende@resuelve.mx
+!
+ip dhcp pool Prestamo_Tablet
+   host 192.168.216.231 255.255.255.0
+   client-identifier 0164.db43.7a09.37
+   client-name paraTabletActualizacion
+!
+ip dhcp pool Ana_Celis_LAPTOP
+   host 192.168.218.193 255.255.255.0
+   client-identifier 011c.4d70.7f13.04
+   client-name karena.celis@resuelve.mx
+!
+ip dhcp pool Poncho_MAC
+   host 192.168.217.145 255.255.255.0
+   client-identifier 01a4.cf99.75b3.f3
+   client-name Poncho
+!
+ip dhcp pool Maria_Cosme_LAPTOP
+   host 192.168.216.204 255.255.255.0
+   client-identifier 01d8.9c67.657b.d5
+   client-name mariadejesus.cosme@resuelve.mx
+!
+ip dhcp pool Angel_Vargas_LAPTOP
+   host 192.168.216.206 255.255.255.0
+   client-identifier 0160.dd8e.0540.ec
+   client-name angel.vargas@resuelvetudeuda.com
+!
+ip dhcp pool Maria_Frias_LAPTOP
+   host 192.168.216.227 255.255.255.0
+   client-identifier 0138.f9d3.4a01.ca
+   client-name maria.frias@resuelve.mx
+!
+ip dhcp pool Ari_Ornelas_MOVIL
+   host 192.168.217.97 255.255.255.0
+   client-identifier 01e8.5a8b.ba3d.3d
+   client-name ariadna.ornelas@resuelve.mx
+!
+ip dhcp pool Ari_Ornelas_LAPTOP
+   host 192.168.217.98 255.255.255.0
+   client-identifier 0128.11a8.1c31.62
+   client-name ariadna.ornelas@resuelve.mx
+!
+ip dhcp pool Prestamo_Mac
+   host 192.168.216.250 255.255.255.0
+   client-identifier 018c.8590.968b.60
+   client-name pruebas
+!
+ip dhcp pool Camila_Garcia_MOVIL
+   host 192.168.216.236 255.255.255.0
+   client-identifier 0128.c538.bbfc.7b
+   client-name camila.garcia@resuelve.mx
+!
+!
+ip name-server 8.8.8.8
+ip name-server 192.168.222.253
+ip device tracking
+!
+!
+crypto pki trustpoint TP-self-signed-1829112064
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1829112064
+ revocation-check none
+ rsakeypair TP-self-signed-1829112064
+!
+!
+crypto pki certificate chain TP-self-signed-1829112064
+ certificate self-signed 01
+  30820245 308201AE A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 31383239 31313230 3634301E 170D3933 30333031 30303235
+  35395A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 38323931
+  31323036 3430819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100C91A 5C4578DD 8FE371E3 0FE01EFC 2047867D 2482A7C7 015834A8 EB8E4D1E
+  A8F565BD FD2EF2B2 ADEB49DB 0076D7F0 862D9B93 2CD26B34 FB3AD914 7FD8AF29
+  CA58A5AE FB6E9073 B3EDB190 FFB7240C 2D8FF5E7 FF949142 8FBD35AB 5DFEC07F
+  CFB52FC3 41C2BB38 7D3FF971 1E7454A6 10817BCB 45A99DF2 102C2B1C 1A4F0BC7
+  FE170203 010001A3 6D306B30 0F060355 1D130101 FF040530 030101FF 30180603
+  551D1104 11300F82 0D434F52 455F4D41 53415259 4B2E301F 0603551D 23041830
+  1680149E 33E1940D B4834669 4853A8ED 1E855B83 66124230 1D060355 1D0E0416
+  04149E33 E1940DB4 83466948 53A8ED1E 855B8366 1242300D 06092A86 4886F70D
+  01010405 00038181 00B5B7F4 FDC099E4 D7709C01 31FAEAD9 B8D4D32C 098327F1
+  8964B29D 628BC814 832EE676 F868888D 43E022C5 EB4DA834 459BFC49 358A2395
+  FCABEF85 9D93753F 1F89A9B6 D22CA1AD 5B4B1837 703A98C0 BBE3550D 43E8C72E
+  064F2189 A4FF0FCC 0CF616EA 1A3E668B F4400AD2 5591B4E5 72FD8DEA 69C13B30
+  09E77482 22CEF221 D1
+  quit
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+!
+!
+interface FastEthernet0
+ no ip address
+ no ip route-cache cef
+ no ip route-cache
+ no ip mroute-cache
+ shutdown
+!
+interface GigabitEthernet0/1
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 222
+ switchport trunk allowed vlan 200-249
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 222
+ switchport trunk allowed vlan 200-249
+ switchport mode trunk
+!
+interface GigabitEthernet0/3
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 222
+ switchport trunk allowed vlan 200-249
+ switchport mode trunk
+!
+interface GigabitEthernet0/4
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 222
+ switchport trunk allowed vlan 200-249
+ switchport mode trunk
+!
+interface GigabitEthernet0/5
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 222
+ switchport trunk allowed vlan 200-249
+ switchport mode trunk
+!
+interface GigabitEthernet0/6
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 222
+ switchport trunk allowed vlan 200-249
+ switchport mode trunk
+!
+interface GigabitEthernet0/7
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 222
+ switchport trunk allowed vlan 200-249
+ switchport mode trunk
+!
+interface GigabitEthernet0/8
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 222
+ switchport trunk allowed vlan 200-249
+ switchport mode trunk
+!
+interface GigabitEthernet0/9
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 222
+ switchport trunk allowed vlan 200-249
+ switchport mode trunk
+!
+interface GigabitEthernet0/10
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 222
+ switchport trunk allowed vlan 200-249
+ switchport mode trunk
+!
+interface GigabitEthernet0/11
+ description SERVER AD
+ switchport access vlan 222
+ switchport mode access
+!
+interface GigabitEthernet0/12
+ switchport access vlan 215
+ switchport mode access
+!
+interface GigabitEthernet0/13
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 215
+ switchport trunk allowed vlan 200-249
+ switchport mode trunk
+!
+interface GigabitEthernet0/14
+ switchport access vlan 249
+ switchport mode access
+!
+interface GigabitEthernet0/15
+ description HACIA LAN2 NVR
+ switchport access vlan 221
+ switchport mode access
+!
+interface GigabitEthernet0/16
+ description HACIA LAN1 NVR
+ switchport access vlan 222
+ switchport mode access
+!
+interface GigabitEthernet0/17
+ description HACIA FORTINET 500D
+ switchport access vlan 222
+ switchport mode access
+!
+interface GigabitEthernet0/18
+ description NVR SUCURSALES
+ switchport access vlan 222
+ switchport mode access
+!
+interface GigabitEthernet0/19
+ description SERVER SEP
+ switchport access vlan 222
+ switchport mode access
+!
+interface GigabitEthernet0/20
+ description SERVER CONPAQ
+ switchport access vlan 249
+ switchport mode access
+!
+interface GigabitEthernet0/21
+ description Uplink a IDF piso 4
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 222
+ switchport trunk allowed vlan 200-249
+ switchport mode trunk
+!
+interface GigabitEthernet0/22
+ description FORTIANALYZER
+ switchport access vlan 222
+ switchport mode access
+!
+interface GigabitEthernet0/23
+ description Uplink a IDF piso 3
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 222
+ switchport trunk allowed vlan 200-249
+ switchport mode trunk
+!
+interface GigabitEthernet0/24
+ description HACIA FORTINET
+ switchport access vlan 222
+ switchport mode access
+!
+interface GigabitEthernet1/1
+!
+interface GigabitEthernet1/2
+!
+interface GigabitEthernet1/3
+!
+interface GigabitEthernet1/4
+!
+interface TenGigabitEthernet1/1
+!
+interface TenGigabitEthernet1/2
+!
+interface Vlan1
+ ip address 192.168.1.1 255.255.255.0
+ shutdown
+!
+interface Vlan200
+ ip address 192.168.200.254 255.255.255.0
+!
+interface Vlan201
+ ip address 192.168.201.254 255.255.255.0
+!
+interface Vlan202
+ ip address 192.168.202.254 255.255.255.0
+!
+interface Vlan203
+ ip address 192.168.203.254 255.255.255.0
+!
+interface Vlan204
+ ip address 192.168.204.254 255.255.255.0
+!
+interface Vlan205
+ ip address 192.168.205.254 255.255.255.0
+!
+interface Vlan206
+ ip address 192.168.206.254 255.255.255.0
+!
+interface Vlan207
+ ip address 192.168.207.254 255.255.255.0
+!
+interface Vlan208
+ ip address 192.168.208.254 255.255.255.0
+!
+interface Vlan209
+ ip address 192.168.209.254 255.255.255.0
+!
+interface Vlan210
+ ip address 192.168.210.254 255.255.255.0
+!
+interface Vlan211
+ ip address 192.168.211.254 255.255.255.0
+!
+interface Vlan212
+ ip address 192.168.212.254 255.255.255.0
+!
+interface Vlan213
+ ip address 192.168.213.254 255.255.255.0
+!
+interface Vlan214
+ ip address 192.168.214.254 255.255.255.0
+!
+interface Vlan215
+ ip address 192.168.215.254 255.255.255.0
+!
+interface Vlan216
+ ip address 192.168.216.254 255.255.255.0
+!
+interface Vlan217
+ ip address 192.168.217.254 255.255.255.0
+!
+interface Vlan218
+ ip address 192.168.218.254 255.255.255.0
+!
+interface Vlan219
+ ip address 192.168.219.254 255.255.255.0
+!
+interface Vlan220
+ ip address 192.168.220.254 255.255.255.0
+!
+interface Vlan221
+ ip address 192.168.221.254 255.255.255.0
+!
+interface Vlan222
+ ip address 192.168.222.252 255.255.255.0
+!
+interface Vlan223
+ ip address 192.168.223.254 255.255.255.0
+!
+interface Vlan224
+ ip address 192.168.224.254 255.255.255.0
+!
+interface Vlan225
+ ip address 192.168.225.254 255.255.255.0
+!
+interface Vlan226
+ ip address 192.168.226.254 255.255.255.0
+!
+interface Vlan227
+ ip address 192.168.227.254 255.255.255.0
+!
+interface Vlan228
+ ip address 192.168.228.254 255.255.255.0
+!
+interface Vlan229
+ ip address 192.168.229.254 255.255.255.0
+!
+interface Vlan230
+ ip address 192.168.230.254 255.255.255.0
+!
+interface Vlan231
+ ip address 192.168.231.254 255.255.255.0
+!
+interface Vlan232
+ ip address 192.168.232.254 255.255.255.0
+!
+interface Vlan245
+ ip address 192.168.245.254 255.255.254.0
+!
+interface Vlan249
+ ip address 192.168.249.254 255.255.255.0
+!
+ip default-gateway 192.168.222.253
+ip classless
+ip route 0.0.0.0 0.0.0.0 192.168.222.253
+ip http server
+ip http authentication local
+ip http secure-server
+!
+!
+!
+line con 0
+line vty 0 4
+ password 7 095E4B1A0C001B040E5D5679
+ login
+ transport input telnet ssh
+line vty 5 15
+ password 7 095E4B1A0C001B040E5D5679
+ login
+ transport input telnet ssh
+!
+end
+
+CORE_MASARYK#
