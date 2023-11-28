@@ -1,0 +1,213 @@
+(SW25-IDF1) >enable
+
+(SW25-IDF1) #show running-config
+
+!Current Configuration:
+!
+!System Description "Extreme 210-Series 24GE, 2 1GbE SFP ports, 1 Fixed AC PSU, L2 Switching, 1.1.1.11, Linux 3.6.5, U-Boot 2012.10-00003-g56c397c (Mar 28 2017 - 15:11:08)"
+!System Software Version "1.1.1.11"
+!System Up Time          "113 days 10 hrs 14 mins 14 secs"
+!Additional Packages     FASTPATH QOS,FASTPATH IPv6 Management,FASTPATH Routing
+!Current SNTP Synchronized Time: SNTP Client Mode Is Disabled
+!
+hostname "SW25-IDF1"
+vlan database
+vlan 200-249
+vlan routing 222 1
+exit
+
+ip ssh server enable
+configure
+line console
+exit
+
+line telnet
+exit
+
+line ssh
+exit
+
+snmp-server sysname "SW25-IDF1"
+!
+
+interface 0/1
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/2
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/3
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/4
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/5
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/6
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/7
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/8
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/9
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/10
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/11
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/12
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/13
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/14
+switchport mode access
+switchport access vlan 208
+exit
+
+
+
+interface 0/15
+switchport mode access
+switchport access vlan 209
+exit
+
+
+
+interface 0/16
+switchport mode access
+switchport access vlan 209
+exit
+
+
+
+interface 0/17
+switchport mode access
+switchport access vlan 209
+exit
+
+
+
+interface 0/18
+switchport mode access
+switchport access vlan 209
+exit
+
+
+
+interface 0/19
+switchport mode access
+switchport access vlan 209
+exit
+
+
+
+interface 0/20
+switchport mode access
+switchport access vlan 209
+exit
+
+
+
+interface 0/21
+switchport mode access
+switchport access vlan 209
+exit
+
+
+
+interface 0/22
+switchport mode access
+switchport access vlan 209
+exit
+
+
+
+interface 0/23
+switchport mode access
+switchport access vlan 209
+exit
+
+
+
+interface 0/24
+switchport mode trunk
+switchport trunk native vlan 222
+exit
+
+
+
+interface vlan 222
+description 'BB_SW'
+routing
+ip address 192.168.222.44 255.255.255.0
+exit
+
+
+ip default-gateway 192.168.222.252
+exit
+
+
+(SW25-IDF1) #
+
