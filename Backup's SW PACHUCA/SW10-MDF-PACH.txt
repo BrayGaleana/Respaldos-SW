@@ -1,0 +1,144 @@
+SW10-MDF-PACH#show running-config
+vlan database
+vlan 60-80
+exit
+interface range  fa19-20,gi1-4
+switchport default-vlan tagged
+exit
+voice vlan oui-table add 0001e3 Siemens_AG_phone________
+voice vlan oui-table add 00036b Cisco_phone_____________
+voice vlan oui-table add 00096e Avaya___________________
+voice vlan oui-table add 000fe2 H3C_Aolynk______________
+voice vlan oui-table add 0060b9 Philips_and_NEC_AG_phone
+voice vlan oui-table add 00d01e Pingtel_phone___________
+voice vlan oui-table add 00e075 Polycom/Veritel_phone___
+voice vlan oui-table add 00e0bb 3Com_phone______________
+no lldp run
+interface vlan 80
+ip address 192.168.80.10 255.255.255.0
+exit
+ip default-gateway 192.168.80.253
+interface vlan 80
+no ip address dhcp
+exit
+hostname SW10-MDF-PACH
+ip ssh server
+no snmp-server server
+ip telnet server
+interface fastethernet1
+switchport mode access
+switchport access vlan 64
+exit
+interface fastethernet2
+switchport mode access
+switchport access vlan 64
+exit
+interface fastethernet3
+switchport mode access
+switchport access vlan 64
+exit
+interface fastethernet4
+switchport mode access
+switchport access vlan 64
+exit
+interface fastethernet5
+switchport mode access
+switchport access vlan 64
+exit
+interface fastethernet6
+switchport mode access
+switchport access vlan 64
+exit
+interface fastethernet7
+switchport mode access
+switchport access vlan 64
+exit
+interface fastethernet8
+switchport mode access
+switchport access vlan 64
+exit
+interface fastethernet9
+switchport mode access
+switchport access vlan 64
+exit
+interface fastethernet10
+switchport mode access
+switchport access vlan 64
+exit
+interface fastethernet11
+switchport mode access
+switchport access vlan 64
+exit
+interface fastethernet12
+switchport mode access
+switchport access vlan 77
+exit
+interface fastethernet13
+switchport mode access
+switchport access vlan 77
+exit
+interface fastethernet14
+switchport mode access
+switchport access vlan 77
+exit
+interface fastethernet15
+switchport mode access
+switchport access vlan 77
+exit
+interface fastethernet16
+switchport mode access
+switchport access vlan 77
+exit
+interface fastethernet17
+switchport mode access
+switchport access vlan 77
+exit
+interface fastethernet18
+switchport mode access
+switchport access vlan 77
+exit
+interface fastethernet19
+switchport trunk allowed vlan add 60-78,80
+switchport trunk native vlan 79
+exit
+interface fastethernet20
+switchport trunk allowed vlan add 60-78,80
+switchport trunk native vlan 79
+exit
+interface fastethernet21
+switchport mode access
+switchport access vlan 79
+exit
+interface fastethernet22
+switchport mode access
+switchport access vlan 79
+exit
+interface fastethernet23
+switchport mode access
+switchport access vlan 68
+exit
+interface fastethernet24
+switchport mode access
+switchport access vlan 64
+exit
+interface gigabitethernet1
+switchport trunk allowed vlan add 60-79
+switchport trunk native vlan 80
+exit
+interface gigabitethernet2
+switchport trunk allowed vlan add 60-79
+switchport trunk native vlan 80
+exit
+interface gigabitethernet3
+switchport trunk allowed vlan add 60-79
+switchport trunk native vlan 80
+exit
+interface gigabitethernet4
+switchport trunk allowed vlan add 60-79
+switchport trunk native vlan 80
+exit
+interface vlan 80
+name BB_SW
+exit
+SW10-MDF-PACH#
+
