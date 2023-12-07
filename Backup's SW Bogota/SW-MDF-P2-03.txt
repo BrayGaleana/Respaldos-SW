@@ -1,0 +1,192 @@
+SW-MDF-P2-03#show running-config
+config-file-header
+SW-MDF-P2-03
+v3.2.0.84 / RCBS3.2_950_377_134
+CLI v1.0
+file SSD indicator encrypted
+@
+ssd-control-start
+ssd config
+ssd file passphrase control unrestricted
+no ssd file integrity control
+ssd-control-end cb0a3fdb1f3a1af4e4430033719968c0
+!
+!
+unit-type-control-start
+unit-type unit 1 network gi uplink none
+unit-type-control-end
+!
+vlan database
+vlan 170-199,500
+exit
+voice vlan oui-table add 0001e3 Siemens_AG_phone
+voice vlan oui-table add 00036b Cisco_phone
+voice vlan oui-table add 00096e Avaya
+voice vlan oui-table add 000fe2 H3C_Aolynk
+voice vlan oui-table add 0060b9 Philips_and_NEC_AG_phone
+voice vlan oui-table add 00d01e Pingtel_phone
+voice vlan oui-table add 00e075 Polycom/Veritel_phone
+voice vlan oui-table add 00e0bb 3Com_phone
+no lldp run
+bonjour interface range vlan 1
+hostname SW-MDF-P2-03
+username admin password encrypted $15$vbXihefOepNJYv+A$mbBPFrlY1W0uBxQmuc6oqCZXrcS31bDVE69GjVkFZgw8bHLcGraJDeKJKcn0Hs3M90Lp2
+79i+QzlrDai87ktnQ== privilege 15
+ip ssh server
+ip telnet server
+!
+interface vlan 187
+ name BB_SW
+ ip address 192.168.187.53 255.255.255.0
+!
+interface GigabitEthernet1
+ switchport access vlan 171
+!
+interface GigabitEthernet2
+ switchport access vlan 171
+!
+interface GigabitEthernet3
+ switchport access vlan 189
+!
+interface GigabitEthernet4
+ switchport access vlan 171
+!
+interface GigabitEthernet5
+ switchport access vlan 171
+!
+interface GigabitEthernet6
+ switchport access vlan 171
+!
+interface GigabitEthernet7
+ switchport access vlan 171
+!
+interface GigabitEthernet8
+ switchport access vlan 171
+!
+interface GigabitEthernet9
+ switchport mode trunk
+ switchport trunk native vlan 186
+!
+interface GigabitEthernet10
+ switchport access vlan 171
+!
+interface GigabitEthernet11
+ switchport mode trunk
+ switchport trunk native vlan 186
+!
+interface GigabitEthernet12
+ switchport mode trunk
+ switchport trunk native vlan 186
+!
+interface GigabitEthernet13
+ switchport access vlan 171
+!
+interface GigabitEthernet14
+ switchport access vlan 171
+!
+interface GigabitEthernet15
+ switchport access vlan 175
+!
+interface GigabitEthernet16
+ switchport access vlan 175
+!
+interface GigabitEthernet17
+ switchport access vlan 175
+!
+interface GigabitEthernet18
+ switchport access vlan 171
+!
+interface GigabitEthernet19
+ switchport access vlan 175
+!
+interface GigabitEthernet20
+ switchport access vlan 175
+!
+interface GigabitEthernet21
+ switchport access vlan 175
+!
+interface GigabitEthernet22
+ switchport access vlan 175
+!
+interface GigabitEthernet23
+ switchport access vlan 175
+!
+interface GigabitEthernet24
+ switchport access vlan 175
+!
+interface GigabitEthernet25
+ switchport access vlan 173
+!
+interface GigabitEthernet26
+ switchport access vlan 173
+!
+interface GigabitEthernet27
+ switchport access vlan 173
+!
+interface GigabitEthernet28
+ switchport access vlan 173
+!
+interface GigabitEthernet29
+ switchport access vlan 173
+!
+interface GigabitEthernet30
+ switchport access vlan 173
+!
+interface GigabitEthernet31
+ switchport access vlan 173
+!
+interface GigabitEthernet32
+ switchport access vlan 173
+!
+interface GigabitEthernet33
+ switchport access vlan 173
+!
+interface GigabitEthernet34
+ switchport access vlan 173
+!
+interface GigabitEthernet35
+ switchport access vlan 173
+!
+interface GigabitEthernet36
+ switchport access vlan 189
+!
+interface GigabitEthernet37
+ switchport access vlan 173
+!
+interface GigabitEthernet38
+ switchport access vlan 187
+!
+interface GigabitEthernet39
+ switchport access vlan 173
+!
+interface GigabitEthernet40
+ switchport access vlan 173
+!
+interface GigabitEthernet41
+ switchport access vlan 173
+!
+interface GigabitEthernet42
+ switchport access vlan 173
+!
+interface GigabitEthernet43
+ switchport access vlan 173
+!
+interface GigabitEthernet44
+ switchport access vlan 173
+!
+interface GigabitEthernet45
+ switchport access vlan 177
+!
+interface GigabitEthernet46
+ switchport access vlan 173
+!
+interface GigabitEthernet47
+ switchport access vlan 177
+!
+interface GigabitEthernet48
+ switchport mode trunk
+ switchport trunk native vlan 187
+!
+exit
+ip default-gateway 192.168.187.254
+SW-MDF-P2-03#

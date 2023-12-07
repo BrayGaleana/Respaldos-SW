@@ -1,0 +1,1242 @@
+CORE_MDF_COL#show running-config
+Building configuration...
+
+Current configuration : 30739 bytes
+!
+! Last configuration change at 06:07:03 UTC Wed Dec 6 2023
+!
+version 15.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+service compress-config
+!
+hostname CORE_MDF_COL
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-vrf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+enable secret 5 $1$5vN2$rOFpW7qBVoO0.uGJqtvl0.
+enable password 7 0016405311085A105C6B1D1C5A
+!
+username r35u31v3 privilege 15 password 7 010155514E58571972
+no aaa new-model
+switch 1 provision ws-c3650-48ts
+!
+!
+!
+!
+!
+ip routing
+!
+ip name-server 8.8.8.8
+ip name-server 192.168.187.253
+ip dhcp limit lease per interface 1
+ip dhcp limit lease log
+!
+ip dhcp pool VTAS_RTD
+ import all
+ network 192.168.170.0 255.255.255.0
+ default-router 192.168.170.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+ lease 0 11 59
+!
+ip dhcp pool NEGOCIACION
+ import all
+ network 192.168.171.0 255.255.255.0
+ default-router 192.168.171.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+ lease 3
+!
+ip dhcp pool SERVICIO_A_CLIENTES
+ import all
+ network 192.168.172.0 255.255.255.0
+ default-router 192.168.172.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+ lease 3
+!
+ip dhcp pool FINANZAS
+ import all
+ network 192.168.173.0 255.255.255.0
+ default-router 192.168.173.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+ lease 3
+!
+ip dhcp pool CALIDAD
+ import all
+ network 192.168.174.0 255.255.255.0
+ default-router 192.168.174.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+ lease 3
+!
+ip dhcp pool DIRECCION_GENERAL
+ import all
+ network 192.168.175.0 255.255.255.0
+ default-router 192.168.175.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+ lease 3
+!
+ip dhcp pool TALENTO
+ import all
+ network 192.168.176.0 255.255.255.0
+ default-router 192.168.176.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+ lease 3
+!
+ip dhcp pool INGENIERIA
+ import all
+ network 192.168.177.0 255.255.255.0
+ default-router 192.168.177.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+ lease 3
+!
+ip dhcp pool MARKETING
+ import all
+ network 192.168.178.0 255.255.255.0
+ default-router 192.168.178.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+ lease 3
+!
+ip dhcp pool CONTRATOS
+ import all
+ network 192.168.179.0 255.255.255.0
+ default-router 192.168.179.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+ lease 3
+!
+ip dhcp pool AP'S
+ import all
+ network 192.168.186.0 255.255.255.0
+ default-router 192.168.186.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+!
+ip dhcp pool VTAS_RTD_2
+ import all
+ network 192.168.181.0 255.255.255.0
+ default-router 192.168.181.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+ lease 0 11 59
+!
+ip dhcp pool WIFI_ING
+ import all
+ network 192.168.185.0 255.255.255.0
+ default-router 192.168.185.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+!
+ip dhcp pool WIFI_DIR
+ import all
+ network 192.168.184.0 255.255.255.0
+ default-router 192.168.184.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+!
+ip dhcp pool SALAS
+ import all
+ network 192.168.188.0 255.255.255.0
+ default-router 192.168.188.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+ lease 3
+!
+ip dhcp pool WIFI_RESUELVE_COL
+ import all
+ network 192.168.182.0 255.255.255.0
+ default-router 192.168.182.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+!
+ip dhcp pool WIFI_MOVILES
+ import all
+ network 192.168.191.0 255.255.255.0
+ default-router 192.168.191.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+!
+ip dhcp pool Katherine_Cardenas_LAPTOP
+ host 192.168.185.23 255.255.255.0
+ client-identifier 01a4.d18c.6014.4e
+ client-name KatherineCardenasLAPTOP
+!
+ip dhcp pool Carlos_Vargas_LAPTOP1
+ host 192.168.185.28 255.255.255.0
+ client-identifier 01e4.70b8.f122.eb
+ client-name CarlosVargasLAPTOP1
+!
+ip dhcp pool Carlos_Vargas_LAPTOP2
+ host 192.168.185.29 255.255.255.0
+ client-identifier 0148.a472.53ec.6f
+ client-name CarlosVargasLAPTOP2
+!
+ip dhcp pool Carlos_Vargas_MOVIL
+ host 192.168.185.30 255.255.255.0
+ client-identifier 0144.9160.76d8.82
+ client-name CarlosVaragsANDROID
+!
+ip dhcp pool Cristel_Lopez_MOVIL
+ host 192.168.185.33 255.255.255.0
+ hardware-address 7c03.abf9.e55f
+ client-name CristelLopezIPHONE
+!
+ip dhcp pool Andres_Felipe_Rico_MOVIL
+ host 192.168.185.36 255.255.255.0
+ client-identifier 01b4.56e3.5559.41
+ client-name Andres_Felipe_Rico_MOVIL
+!
+ip dhcp pool TAB_VTAS1
+ host 192.168.191.21 255.255.255.0
+ hardware-address 9067.1c49.4834
+ client-name TABVTAS1
+!
+ip dhcp pool TAB_VTAS2
+ host 192.168.191.22 255.255.255.0
+ hardware-address 9067.1c49.41f9
+ client-name TABVTAS2
+!
+ip dhcp pool TAB_VTAS3
+ host 192.168.191.23 255.255.255.0
+ hardware-address 9067.1c49.41a4
+ client-name TABVTAS3
+!
+ip dhcp pool TAB_VTAS4
+ host 192.168.191.24 255.255.255.0
+ hardware-address 9067.1c49.322c
+ client-name TABVTAS4
+!
+ip dhcp pool TAB_VTAS5
+ host 191.168.191.25 255.255.255.0
+ hardware-address 9067.1c49.4859
+ client-name TABVTAS5
+!
+ip dhcp pool TAB_VTAS6
+ host 192.168.191.26 255.255.255.0
+ hardware-address 9067.1c7e.961c
+ client-name TABVTAS6
+!
+ip dhcp pool TAB_VTAS7
+ host 192.168.191.27 255.255.255.0
+ client-identifier 0164.db43.796b.74
+ client-name TABVTAS7
+!
+ip dhcp pool TAB_TALENTO1
+ host 192.168.191.28 255.255.255.0
+ hardware-address 2cfd.ab2c.1de1
+ client-name TABTALENTO1
+!
+ip dhcp pool TAB_TALENTO2
+ host 192.168.191.29 255.255.255.0
+ hardware-address 2cfd.ab2c.1da5
+ client-name TABTALENTO2
+!
+ip dhcp pool TAB_TALENTO3
+ host 192.168.191.30 255.255.255.0
+ hardware-address 2cfd.ab2c.1df7
+ client-name TABTALENTO3
+!
+ip dhcp pool TAB_TALENTO4
+ host 192.168.191.31 255.255.255.0
+ hardware-address 2cfd.ab2c.1da1
+ client-name TABTALENTO4
+!
+ip dhcp pool TAB_TALENTO5
+ host 192.168.191.32 255.255.255.0
+ hardware-address 2cfd.ab2c.1df2
+ client-name TABTALENTO5
+!
+ip dhcp pool TAB_TALENTO6
+ host 192.168.191.33 255.255.255.0
+ hardware-address 2cfd.ab2c.1dea
+ client-name TABTALENTO6
+!
+ip dhcp pool TAB_TALENTO7
+ host 192.168.191.34 255.255.255.0
+ hardware-address 2cfd.ab2c.1dbb
+ client-name TABTALENTO7
+!
+ip dhcp pool TAB_TALENTO8
+ host 192.168.191.35 255.255.255.0
+ hardware-address 2cfd.ab2c.1dd8
+ client-name TABTALENTO8
+!
+ip dhcp pool TAB_TALENTO9
+ host 192.168.191.36 255.255.255.0
+ hardware-address 2cfd.ab2c.1d9f
+ client-name TABTALENTO9
+!
+ip dhcp pool TAB_TALENTO10
+ host 192.168.191.37 255.255.255.0
+ hardware-address 2cfd.ab2c.1df0
+ client-name TABTALENTO10
+!
+ip dhcp pool TAB_VTAS8
+ host 192.168.191.38 255.255.255.0
+ client-identifier 0164.db43.796b.4b
+ client-name TABVTAS8
+!
+ip dhcp pool TAB_VTAS9
+ host 192.168.191.39 255.255.255.0
+ client-identifier 0164.db43.796b.48
+ client-name TABVTAS9
+!
+ip dhcp pool TAB_VTAS10
+ host 192.168.191.40 255.255.255.0
+ client-identifier 0164.db43.796b.7e
+ client-name TABVTAS10
+!
+ip dhcp pool TAB_VTAS11
+ host 192.168.191.41 255.255.255.0
+ client-identifier 0164.db43.796a.d8
+ client-name TAB_VTAS11
+!
+ip dhcp pool TAB_VTAS12
+ host 192.168.191.42 255.255.255.0
+ hardware-address 9067.1c49.432c
+ client-name TAB_VTAS12
+!
+ip dhcp pool TAB_VTAS13
+ host 192.168.191.43 255.255.255.0
+ hardware-address 9067.1c49.47d7
+ client-name TAB_VTAS13
+!
+ip dhcp pool Katherine_Cardenas_MOVIL
+ host 192.168.185.38 255.255.255.0
+ client-identifier 0104.7970.21ed.a0
+ client-name KatherineCardenasANDROID
+!
+ip dhcp pool CEL_NEGO1
+ host 192.168.191.47 255.255.255.0
+ hardware-address a04c.5b2d.de02
+ client-name CELNEGO1
+!
+ip dhcp pool CEL_NEGO2
+ host 192.168.191.48 255.255.255.0
+ hardware-address a04c.5b31.38e4
+ client-name CELNEGO2
+!
+ip dhcp pool CEL_NEGO3
+ host 192.168.191.49 255.255.255.0
+ hardware-address a04c.5b31.136c
+ client-name CELNEGO3
+!
+ip dhcp pool CEL_NEGO4
+ host 192.168.191.50 255.255.255.0
+ client-identifier 01d4.28d5.5312.64
+ client-name CELNEGO4
+!
+ip dhcp pool CEL_NEGO5
+ host 192.168.191.51 255.255.255.0
+ client-identifier 01a8.a198.f803.79
+ client-name CELNEGO5
+!
+ip dhcp pool CEL_NEGO6
+ host 192.168.191.52 255.255.255.0
+ hardware-address a04c.5b2d.a129
+ client-name CELNEGO6
+!
+ip dhcp pool Martin_Hernandez_MOVIL
+ host 192.168.185.46 255.255.255.0
+ client-identifier 0174.4aa4.da60.70
+ client-name MartinHernandezMOVIL
+!
+ip dhcp pool Fredy_Bustos_MOVIL
+ host 192.168.185.47 255.255.255.0
+ client-identifier 01b0.702d.c185.9c
+ client-name FredyBUstosMOVIL
+!
+ip dhcp pool Paulina_Ramirez_LAPTOP
+ host 192.168.185.48 255.255.255.0
+ client-identifier 0198.460a.8fdd.74
+ client-name PaulinaRamirezLAPTOP
+!
+ip dhcp pool Paulina_Ramirez_MOVIL
+ host 192.168.185.49 255.255.255.0
+ client-identifier 0104.d6aa.67ea.77
+ client-name PaulinaRamirezMOVIL
+!
+ip dhcp pool Daniel_Gonzalez_LAPTOP
+ host 192.168.184.50 255.255.255.0
+ client-identifier 01d8.1265.99a7.b5
+ client-name DanielGonzalezLAPTOP
+!
+ip dhcp pool Javier_Velazquez_LAPTOP
+ host 192.168.184.1 255.255.255.0
+ client-identifier 01a0.afbd.6baf.53
+ client-name JavierVelazquezLAPTOP
+!
+ip dhcp pool Javier_Velazquez_MOVIL
+ host 192.168.184.2 255.255.255.0
+ client-identifier 0188.6b6e.51ac.7a
+ client-name JavierVelazquezMOVIL
+!
+ip dhcp pool Juan_Pablo_LAPTOP
+ host 192.168.184.3 255.255.255.0
+ client-identifier 01c4.8e8f.f51d.bb
+ client-name JuanPabloLAPTOP
+!
+ip dhcp pool Juan_Pablo_MOVIL
+ host 192.168.184.4 255.255.255.0
+ client-identifier 0164.7033.d667.9b
+ client-name JuanPabloMOVIL
+!
+ip dhcp pool Cristina_Cervantes_LAPTOP
+ host 192.168.184.5 255.255.255.0
+ client-identifier 01a4.83e7.aa39.50
+ client-name CristinaCervantesLAPTOP
+!
+ip dhcp pool Cristina_Cervantes_MOVIL
+ host 192.168.184.6 255.255.255.0
+ client-identifier 0188.1908.85d2.0f
+ client-name CristinaCervantesMOVIL
+!
+ip dhcp pool Ricardo_Gonzalez_LAPTOP
+ host 192.168.184.7 255.255.255.0
+ client-identifier 01a4.02b9.2bba.c9
+ client-name RicardoGonzalezLAPTOP
+!
+ip dhcp pool Ricardo_Gonzalez_MOVIL
+ host 192.168.184.8 255.255.255.0
+ client-identifier 01a8.667f.583d.b3
+ client-name RicardoGonzalezMOVIL
+!
+ip dhcp pool Daniel_Martinez_MOVIL
+ host 192.168.184.10 255.255.255.0
+ client-identifier 013c.286d.00ce.a1
+ client-name DanielMartinezMOVIL
+!
+ip dhcp pool Javier_Salmeron_LAPTOP
+ host 192.168.184.13 255.255.255.0
+ client-identifier 0144.032c.dde4.65
+ client-name JavierSalmeronLAPTOP
+!
+ip dhcp pool Diego_Pailles_LAPTOP
+ host 192.168.184.15 255.255.255.0
+ client-identifier 0144.032c.d7ed.b7
+ client-name DiegoPaillesLAPTOP
+!
+ip dhcp pool Diego_Pailles_MOVIL
+ host 192.168.184.16 255.255.255.0
+ client-identifier 0170.3eac.c6e0.97
+ client-name DiegoPaillesMOVIL
+!
+ip dhcp pool Ricardo_Camarena_LAPTOP
+ host 192.168.184.19 255.255.255.0
+ client-identifier 019c.b6d0.9070.3b
+ client-name RicardoCamarenaLAPTOP
+!
+ip dhcp pool Ricardo_Camarena_MOVIL
+ host 192.168.184.20 255.255.255.0
+ client-identifier 0140.9c28.d7d9.06
+ client-name RicardoCamarenaMOVIL
+!
+ip dhcp pool Roberto_Sanchez_MACBOOK
+ host 192.168.184.21 255.255.255.0
+ client-identifier 0188.e9fe.6764.ce
+ client-name RobertoSanchezMACBOOK
+!
+ip dhcp pool Roberto_Sanchez_MOVIL
+ host 192.168.184.22 255.255.255.0
+ client-identifier 01b4.f7a1.bffa.db
+ client-name RobertoSanchezMOVIL
+!
+ip dhcp pool Rodrigo_Nadal_LAPTOP
+ host 192.168.184.29 255.255.255.0
+ client-identifier 0188.b111.76ab.bf
+ client-name RodrigoNadalLAPTOP
+!
+ip dhcp pool Rodrigo_Nadal_MOVIL
+ host 192.168.184.30 255.255.255.0
+ client-identifier 0150.bc96.541d.7e
+ client-name RodrigoNadalMOVIL
+!
+ip dhcp pool Amat_Catalan_LAPTOP
+ host 192.168.184.23 255.255.255.0
+ client-identifier 0164.8099.f0c0.49
+ client-name AmatCatalanLAPTOP
+!
+ip dhcp pool JC_Ballesteros_LAPTOP
+ host 192.168.184.25 255.255.255.0
+ client-identifier 0164.8099.d5cd.ca
+ client-name JCBallesterosLAPTOP
+!
+ip dhcp pool JC_Ballesteros_MOVIL
+ host 192.168.184.26 255.255.255.0
+ client-identifier 0178.31c1.0500.63
+ client-name JCBallesterosMOVIL
+!
+ip dhcp pool Daniel_Martinez_LAPTOP
+ host 192.168.184.9 255.255.255.0
+ client-identifier 0118.6590.d471.f5
+ client-name DanielMartinezLAPTOP
+!
+ip dhcp pool Amat_Catalan_MOvil
+ host 192.168.184.24 255.255.255.0
+ client-identifier 01c0.d012.b034.81
+ client-name AmataCatalanMOVIL
+!
+ip dhcp pool Javier_Salmeron_MOVIL
+ host 192.168.184.14 255.255.255.0
+ client-identifier 01a8.0c63.ed1f.9d
+ client-name JavierSalmeronMOVIL
+!
+ip dhcp pool Alvaro_Lizama_MACBOOK
+ host 192.168.185.54 255.255.255.0
+ client-identifier 014c.3275.9811.f9
+ client-name AlvaroLizamaMACBOOK
+!
+ip dhcp pool Alvaro_Lizama_MOVIL
+ host 192.168.185.55 255.255.255.0
+ client-identifier 01e0.338e.1eb6.7b
+ client-name AlvaroLizamaMOVIL
+!
+ip dhcp pool CEL_VTAS_17
+ host 192.168.191.69 255.255.255.0
+ client-identifier 01d4.28d5.3942.0f
+ client-name CELVTAS17
+!
+ip dhcp pool CEL_VTAS_1
+ host 192.168.191.53 255.255.255.0
+ client-identifier 01d4.28d5.4130.a8
+ client-name CEL_VTAS_1
+!
+ip dhcp pool CEL_VTAS_2
+ host 192.168.191.54 255.255.255.0
+ client-identifier 01d4.28d5.0b3d.b2
+ client-name CEL_VTAS_2
+!
+ip dhcp pool CEL_VTAS_3
+ host 192.168.191.55 255.255.255.0
+ client-identifier 01d4.28d5.57a6.3d
+ client-name CEL_VTAS_3
+!
+ip dhcp pool CEL_VTAS_4
+ host 192.168.191.56 255.255.255.0
+ client-identifier 01d4.28d5.13a2.00
+ client-name CEL_VTAS_4
+!
+ip dhcp pool CEL_VTAS_5
+ host 192.168.191.57 255.255.255.0
+ client-identifier 01d4.28d5.091b.0c
+ client-name CEL_VTAS_5
+!
+ip dhcp pool CEL_VTAS_6
+ host 192.168.191.58 255.255.255.0
+ client-identifier 01d4.28d5.3b16.99
+ client-name CEL_VTAS_6
+!
+ip dhcp pool CEL_VTAS_7
+ host 192.168.191.59 255.255.255.0
+ client-identifier 01d4.28d5.1c2e.5d
+ client-name CEL_VTAS_7
+!
+ip dhcp pool CEL_VTAS_8
+ host 192.168.191.60 255.255.255.0
+ client-identifier 01d4.28d5.38f2.ee
+ client-name CEL_VTAS_8
+!
+ip dhcp pool CEL_VTAS_9
+ host 192.168.191.61 255.255.255.0
+ client-identifier 01d4.28d5.0f35.92
+ client-name CEL_VTAS_9
+!
+ip dhcp pool CEL_VTAS_10
+ host 192.168.191.62 255.255.255.0
+ client-identifier 01d4.28d5.41f4.47
+ client-name CEL_VTAS_10
+!
+ip dhcp pool CEL_VTAS_11
+ host 192.168.191.63 255.255.255.0
+ client-identifier 01d4.28d5.16fd.bc
+ client-name CEL_VTAS_11
+!
+ip dhcp pool CEL_VTAS_12
+ host 192.168.191.64 255.255.255.0
+ client-identifier 01d4.28d5.1836.f5
+ client-name CEL_VTAS_12
+!
+ip dhcp pool CEL_VTAS_13
+ host 192.168.191.65 255.255.255.0
+ client-identifier 01d4.28d5.117f.e1
+ client-name CEL_VTAS_13
+!
+ip dhcp pool CEL_VTAS_14
+ host 192.168.191.66 255.255.255.0
+ client-identifier 01d4.28d5.174c.33
+ client-name CEL_VTAS_14
+!
+ip dhcp pool CEL_VTAS_15
+ host 192.168.191.67 255.255.255.0
+ client-identifier 01d4.28d5.2d5a.85
+ client-name CEL_VTAS_15
+!
+ip dhcp pool CEL_VTAS_16
+ host 192.168.191.68 255.255.255.0
+ client-identifier 01d4.28d5.13f0.e8
+ client-name CEL_VTAS_16
+!
+ip dhcp pool CEL_VTAS_18
+ host 192.168.191.70 255.255.255.0
+ client-identifier 01d4.28d5.3375.58
+ client-name CEL_VTAS_18
+!
+ip dhcp pool CEL_VTAS_19
+ host 192.168.191.71 255.255.255.0
+ client-identifier 01d4.28d5.3d12.25
+ client-name CEL_VTAS_19
+!
+ip dhcp pool CEL_VTAS_20
+ host 192.168.191.72 255.255.255.0
+ client-identifier 01d4.28d5.3598.0b
+ client-name CEL_VTAS_20
+!
+ip dhcp pool CEL_VTAS_21
+ host 192.168.191.73 255.255.255.0
+ client-identifier 01d4.28d5.0830.e5
+ client-name CEL_VTAS_21
+!
+ip dhcp pool CEL_VTAS_22
+ host 192.168.191.74 255.255.255.0
+ client-identifier 01d4.28d5.1046.f3
+ client-name CEL_VTAS_22
+!
+ip dhcp pool CEL_Marketing_COL
+ host 192.168.191.75 255.255.255.0
+ client-identifier 01a8.a198.f67c.a3
+ client-name CEL_Marketing_COL
+!
+ip dhcp pool Natalie_Roitman_MOVIL
+ host 192.168.184.36 255.255.255.0
+ client-identifier 0188.1908.aacf.96
+ client-name NatalieRoitmanMOVIL
+!
+ip dhcp pool Natalie_Roitman_LAPTOP
+ host 192.168.184.35 255.255.255.0
+ client-identifier 0164.8099.bb26.0f
+ client-name NatalieRoitmanLAPTOP
+!
+ip dhcp pool Ingrid_Narvaez_MOVIL
+ host 192.168.185.56 255.255.255.0
+ client-identifier 0188.4477.9e78.ca
+ client-name IngridNarvaezMOVIL
+!
+ip dhcp pool Diana_Pico_MOVIL
+ host 192.168.185.57 255.255.255.0
+ client-identifier 0190.0628.9049.ed
+ client-name DianaPicoMOVIl
+!
+ip dhcp pool Martin_Hernandez_LAPTOP
+ host 192.168.185.59 255.255.255.0
+ client-identifier 0150.76af.364e.e9
+ client-name MartinHernandezLAPTOP
+!
+ip dhcp pool Fredy_Bustos_LAPTOP
+ host 192.168.185.60 255.255.255.0
+ client-identifier 019c.305b.2b2f.55
+ client-name FredyBustosLAPTOP
+!
+ip dhcp pool Andres_Felipe_Rico_LAPTOP
+ host 192.168.185.25 255.255.255.0
+ client-identifier 0150.76af.364e.99
+ client-name AndresFelipeRicoLAPTOP
+!
+ip dhcp pool Alvaro_Lizama_LAP2
+ host 192.168.185.63 255.255.255.0
+ client-identifier 01f0.1898.5bb7.8d
+ client-name AlvaroLizamaLAP2
+!
+ip dhcp pool Raul_Montes_MACBOOK
+ host 192.168.185.66 255.255.255.0
+ client-identifier 014c.3275.90a3.15
+ client-name RaulMontesMACBOOK
+!
+ip dhcp pool Raul_Montes_MOVIL
+ host 192.168.185.67 255.255.255.0
+ client-identifier 01b0.eb57.8bde.87
+ client-name RaulMontesMOVIL
+!
+ip dhcp pool Raul_Montes_MACBOOK2
+ host 192.168.185.72 255.255.255.0
+ client-identifier 0180.e650.000b.08
+ client-name RaulMontes_MACBOOK2
+!
+ip dhcp pool CEL_NEGO7
+ host 192.168.191.76 255.255.255.0
+ hardware-address d8ce.3a07.2e86
+ client-name CEL_NEGO7
+!
+ip dhcp pool CEL_NEGO8
+ host 192.168.191.77 255.255.255.0
+ hardware-address d8ce.3a07.36ee
+ client-name CEL_NEGO8
+!
+ip dhcp pool CEL_NEGO9
+ host 192.168.191.78 255.255.255.0
+ hardware-address d8ce.3a07.2219
+ client-name CEL_NEGO9
+!
+ip dhcp pool CEL_NEGO10
+ host 192.168.191.79 255.255.255.0
+ hardware-address d8ce.3a07.288e
+ client-name CEL_NEGO10
+!
+ip dhcp pool Jair_Pena_MACBOOK
+ host 192.168.185.73 255.255.255.0
+ client-identifier 01dc.a904.8301.f2
+ client-name JairPenaMACBOOK
+!
+ip dhcp pool Andres_Alvarez_LAPTOP
+ host 192.168.185.50 255.255.255.0
+ client-identifier 01a4.02b9.2bba.c9
+ client-name AndresAlvarezLAPTOP
+!
+ip dhcp pool WIFI_INVITADOS_COL
+ import all
+ network 192.168.192.0 255.255.255.0
+ default-router 192.168.192.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+!
+ip dhcp pool Camilo_Quinones_LAPTOP
+ host 192.168.184.27 255.255.255.0
+ client-identifier 0178.4f43.6d4c.b1
+ client-name CamiloQuinonesLAPTOP
+!
+ip dhcp pool Dianays_Pereira_MOVIL
+ host 192.168.185.92 255.255.255.0
+ hardware-address d0ff.98a2.d7bb
+ client-name DianaysPereiraMOVIL
+!
+ip dhcp pool Jair_Pena_LAPPER
+ host 192.168.185.93 255.255.255.0
+ client-identifier 0138.f9d3.2e6b.39
+ client-name JairPenaLAPPER
+!
+ip dhcp pool Camilo_Quinones_MACBOOK
+ host 192.168.184.39 255.255.255.0
+ client-identifier 01a4.83e7.7b17.99
+ client-name Camilo_Quinones_MACBOOK
+!
+ip dhcp pool Juan_Pablo_Ipad
+ host 192.168.184.47 255.255.255.0
+ client-identifier 0150.de06.20f7.aa
+ client-name Juan_Pablo_Ipad
+!
+ip dhcp pool Cristina_cervantes_Ipad
+ host 192.168.184.33 255.255.255.0
+ client-identifier 0160.8c4a.5c1e.23
+ client-name Cristina_cervantes_Ipad
+!
+ip dhcp pool Rodrigo_nadal_lenovo
+ host 192.168.184.37 255.255.255.0
+ client-identifier 0180.3253.3ce8.f3
+ client-name Rodrigo_nadal_lenovo
+!
+ip dhcp pool Andres_alvarez_Cel
+ host 192.168.185.27 255.255.255.0
+ client-identifier 01bc.7abf.3b56.b8
+ client-name Andres_alvarez_Cel
+!
+ip dhcp pool Camilo_quiC1ones_Ipad
+ host 192.168.184.73 255.255.255.0
+ client-identifier 016a.a74d.c02e.aa
+ client-name Camilo_quiC1ones_Ipad
+!
+ip dhcp pool Felipe_Castillo_macbook
+ client-identifier 0114.7dda.8652.94
+ client-name Felipe_Castillo_macbook
+!
+ip dhcp pool Rodrigo_Nadal_Macbook
+ host 192.168.184.48 255.255.255.0
+ client-identifier 01a0.7817.9d3a.be
+ client-name Rodrigo_Nadal_Macbook
+!
+ip dhcp pool Paula_Monrroy_Lap
+ host 192.168.185.89 255.255.255.0
+ client-identifier 0118.473d.4507.fb
+ client-name Paula_Monrroy_Lap
+!
+ip dhcp pool Paula_Monrroy_MOVIL
+ host 192.168.185.90 255.255.255.0
+ client-identifier 0124.5ab5.0571.72
+ client-name Paula_Monrroy_MOVIL
+!
+ip dhcp pool Ivonne_Acero_LAPTOP
+ client-identifier 0118.473d.45d2.f9
+ client-name Ivonne_Acero_LAPTOP
+!
+ip dhcp pool Sop_Col_LAPTOP
+ host 192.168.185.35 255.255.255.0
+ client-identifier 0118.473d.45dd.71
+ client-name Sop_Col_LAPTOP
+!
+ip dhcp pool Cafetera_Piso4_LAPTOP
+ host 192.168.182.252 255.255.255.0
+ client-identifier 01dc.a632.2877.e8
+ client-name Cafetera_Piso4_LAPTOP
+!
+ip dhcp pool Cafetera_Piso2_LAPTOP
+ host 192.168.182.250 255.255.255.0
+ client-identifier 01dc.a632.28c3.21
+ client-name Cafetera_Piso2_LAPTOP
+!
+ip dhcp pool Angie_Pacheco_Movil
+ host 192.168.184.66 255.255.255.0
+ client-identifier 01e2.49dd.b07e.4c
+ client-name Angie_Pacheco_Movil
+!
+ip dhcp pool Angie_Pacheco_LAPTOP
+ host 192.168.184.100 255.255.255.0
+ client-identifier 0114.7dda.862d.df
+ client-name Angie_Pacheco_LAPTOP
+!
+ip dhcp pool Cristel_Lopez_Movil
+ host 192.168.185.151 255.255.255.0
+ client-identifier 01c2.3c36.6c07.61
+ client-name Cristel_Lopez_Movil
+!
+ip dhcp pool Nicolas_Quijano_FTPLAN
+ host 192.168.171.250 255.255.255.0
+ client-identifier 0130.d042.12b8.df
+ client-name nicolas.quijano@resuelvetudeuda.com
+!
+ip dhcp pool Gloria_Tellez_Laptop
+ host 192.168.182.27 255.255.255.0
+ client-name Gloria_Tellez_Laptop
+!
+ip dhcp pool Conexion_SFTP
+ host 192.168.171.160 255.255.255.0
+ client-identifier 016c.2b59.4783.d5
+ client-name conexionSFTP
+!
+ip dhcp pool WIFI_RTD_CO
+ import all
+ network 192.168.194.0 255.255.254.0
+ default-router 192.168.195.254
+ dns-server 192.168.187.211 192.168.187.253 8.8.8.8
+ lease 0 6
+!
+ip dhcp pool Diego_Montoya_MOVLIRECLU
+ host 192.168.182.240 255.255.255.0
+ client-identifier 01b0.eb57.305c.26
+ client-name damontoya@gobravo.com.co
+!
+!
+qos queue-softmax-multiplier 100
+vtp domain RTD_Bogota
+vtp mode transparent
+!
+crypto pki trustpoint TP-self-signed-1516856799
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1516856799
+ revocation-check none
+ rsakeypair TP-self-signed-1516856799
+!
+!
+crypto pki certificate chain TP-self-signed-1516856799
+ certificate self-signed 01
+  3082022B 30820194 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 31353136 38353637 3939301E 170D3137 30333037 32313333
+  32395A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 35313638
+  35363739 3930819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100D2BA 1AD7A23B 9F5AB393 3C94F2BB D609CD09 E7EFD3F0 AACDD190 7D37402A
+  9FEE651D B18AB11F 6F9B6C2C 8C97393A E1FC1A30 8E2B630D 3EB61C38 D0763C6D
+  5FFAE35D 7E3C25C2 B3EEFBA5 C8690EAE 181BA99C EBC1A0AF 6397E624 9F213878
+  21000E1F 7463DC92 D6B73901 83070F4F 393E554B BB018E59 C389D857 62CCF379
+  0CBB0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 301F0603
+  551D2304 18301680 14C0BDE4 E21F8B8A FEEFD05C 5240A851 FD54D4F1 F0301D06
+  03551D0E 04160414 C0BDE4E2 1F8B8AFE EFD05C52 40A851FD 54D4F1F0 300D0609
+  2A864886 F70D0101 05050003 81810097 556F7AD3 76D7EEC9 ED000E5D F8240AB7
+  BC6FAC5D 8804ECCF E2937F06 EA75E112 70D54C1E B8D4F092 E0BB3086 174ADBD7
+  090A272E 785598A1 29AA8B62 187F3852 DA29A687 DBC11301 9C59570D 63FCC949
+  B26759FF 63D67C46 EFAFD865 10A48A7C DEB064FB 5E26AB4F 1F468931 7492E472
+  302D844C 54B42120 4D42A5AB 206ACB
+        quit
+diagnostic bootup level minimal
+spanning-tree mode pvst
+spanning-tree extend system-id
+hw-switch switch 1 logging onboard message level 3
+!
+redundancy
+ mode sso
+!
+!
+vlan 170-199,500-501
+!
+!
+class-map match-any non-client-nrt-class
+!
+policy-map port_child_policy
+ class non-client-nrt-class
+  bandwidth remaining ratio 10
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ vrf forwarding Mgmt-vrf
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet1/0/1
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/2
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+ duplex full
+!
+interface GigabitEthernet1/0/3
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/4
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/5
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/6
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/7
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199,500,501
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/8
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199,500,501
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/9
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199,500,501
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/10
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199,500,501
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/11
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199,500,501
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/12
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199,500,501
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/13
+ switchport access vlan 180
+ switchport mode access
+!
+interface GigabitEthernet1/0/14
+ switchport access vlan 500
+ switchport mode access
+!
+interface GigabitEthernet1/0/15
+ switchport access vlan 180
+ switchport mode access
+!
+interface GigabitEthernet1/0/16
+ switchport access vlan 501
+ switchport mode access
+!
+interface GigabitEthernet1/0/17
+!
+interface GigabitEthernet1/0/18
+!
+interface GigabitEthernet1/0/19
+!
+interface GigabitEthernet1/0/20
+!
+interface GigabitEthernet1/0/21
+!
+interface GigabitEthernet1/0/22
+!
+interface GigabitEthernet1/0/23
+!
+interface GigabitEthernet1/0/24
+!
+interface GigabitEthernet1/0/25
+ switchport access vlan 177
+ switchport mode access
+!
+interface GigabitEthernet1/0/26
+ switchport access vlan 177
+ switchport mode access
+!
+interface GigabitEthernet1/0/27
+ switchport access vlan 177
+ switchport mode access
+!
+interface GigabitEthernet1/0/28
+ switchport access vlan 177
+ switchport mode access
+!
+interface GigabitEthernet1/0/29
+ switchport access vlan 177
+ switchport mode access
+!
+interface GigabitEthernet1/0/30
+ switchport access vlan 177
+ switchport mode access
+!
+interface GigabitEthernet1/0/31
+!
+interface GigabitEthernet1/0/32
+!
+interface GigabitEthernet1/0/33
+!
+interface GigabitEthernet1/0/34
+!
+interface GigabitEthernet1/0/35
+ description AD 187.211
+ switchport access vlan 187
+ switchport mode access
+!
+interface GigabitEthernet1/0/36
+ switchport access vlan 177
+ switchport mode access
+!
+interface GigabitEthernet1/0/37
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/38
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/39
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/40
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/41
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/42
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/43
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/44
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/45
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/46
+ switchport trunk native vlan 187
+ switchport trunk allowed vlan 170-199
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/47
+ switchport access vlan 187
+ switchport mode access
+!
+interface GigabitEthernet1/0/48
+ description HACIA FGT500
+ switchport access vlan 187
+ switchport mode access
+!
+interface GigabitEthernet1/1/1
+!
+interface GigabitEthernet1/1/2
+!
+interface GigabitEthernet1/1/3
+!
+interface GigabitEthernet1/1/4
+!
+interface Vlan1
+ ip address 192.168.1.1 255.255.255.0
+ shutdown
+!
+interface Vlan170
+ ip address 192.168.170.254 255.255.255.0
+!
+interface Vlan171
+ ip address 192.168.171.254 255.255.255.0
+!
+interface Vlan172
+ ip address 192.168.172.254 255.255.255.0
+!
+interface Vlan173
+ ip address 192.168.173.254 255.255.255.0
+!
+interface Vlan174
+ ip address 192.168.174.254 255.255.255.0
+!
+interface Vlan175
+ ip address 192.168.175.254 255.255.255.0
+!
+interface Vlan176
+ ip address 192.168.176.254 255.255.255.0
+!
+interface Vlan177
+ ip address 192.168.177.254 255.255.255.0
+!
+interface Vlan178
+ ip address 192.168.178.254 255.255.255.0
+!
+interface Vlan179
+ ip address 192.168.179.254 255.255.255.0
+!
+interface Vlan180
+ ip address 192.168.180.254 255.255.255.0
+!
+interface Vlan181
+ ip address 192.168.181.254 255.255.255.0
+!
+interface Vlan182
+ ip address 192.168.182.254 255.255.255.0
+!
+interface Vlan183
+ ip address 192.168.183.254 255.255.255.0
+!
+interface Vlan184
+ ip address 192.168.184.254 255.255.255.0
+!
+interface Vlan185
+ ip address 192.168.185.254 255.255.255.0
+!
+interface Vlan186
+ ip address 192.168.186.254 255.255.255.0
+!
+interface Vlan187
+ ip address 192.168.187.254 255.255.255.0
+!
+interface Vlan188
+ ip address 192.168.188.254 255.255.255.0
+!
+interface Vlan189
+ ip address 192.168.189.254 255.255.255.0
+!
+interface Vlan190
+ ip address 192.168.190.254 255.255.255.0
+!
+interface Vlan191
+ ip address 192.168.191.254 255.255.255.0
+!
+interface Vlan192
+ ip address 192.168.192.254 255.255.255.0
+!
+interface Vlan193
+ ip address 192.168.193.254 255.255.255.0
+!
+interface Vlan195
+ ip address 192.168.195.254 255.255.254.0
+!
+interface Vlan196
+ ip address 192.168.196.254 255.255.255.0
+!
+interface Vlan197
+ ip address 192.168.197.254 255.255.255.0
+!
+interface Vlan198
+ ip address 192.168.198.254 255.255.255.0
+!
+interface Vlan199
+ ip address 192.168.199.254 255.255.255.0
+!
+interface Vlan500
+ ip address 172.16.0.254 255.255.255.0
+!
+interface Vlan501
+ ip address 172.16.1.254 255.255.255.0
+!
+ip default-gateway 192.168.187.253
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip route 0.0.0.0 0.0.0.0 192.168.187.253
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ password 7 095E4B1A0C001B040E5D5679
+ login
+line vty 5 15
+ password 7 095E4B1A0C001B040E5D5679
+ login
+!
+wsma agent exec
+ profile httplistener
+ profile httpslistener
+!
+wsma agent config
+ profile httplistener
+ profile httpslistener
+!
+wsma agent filesys
+ profile httplistener
+ profile httpslistener
+!
+wsma agent notify
+ profile httplistener
+ profile httpslistener
+!
+!
+wsma profile listener httplistener
+ transport http
+!
+wsma profile listener httpslistener
+ transport https
+!
+ap group default-group
+end
+
+CORE_MDF_COL#
