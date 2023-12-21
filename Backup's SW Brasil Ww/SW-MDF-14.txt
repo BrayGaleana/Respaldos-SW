@@ -1,0 +1,284 @@
+SW-MDF-14#show running-config
+config-file-header
+SW-MDF-14
+v3.2.0.84 / RCBS3.2_950_377_134
+CLI v1.0
+file SSD indicator encrypted
+@
+ssd-control-start
+ssd config
+ssd file passphrase control unrestricted
+no ssd file integrity control
+ssd-control-end cb0a3fdb1f3a1af4e4430033719968c0
+!
+!
+unit-type-control-start
+unit-type unit 1 network gi uplink none
+unit-type-control-end
+!
+vlan database
+vlan 140-159
+exit
+voice vlan oui-table add 0001e3 Siemens_AG_phone
+voice vlan oui-table add 00036b Cisco_phone
+voice vlan oui-table add 00096e Avaya
+voice vlan oui-table add 000fe2 H3C_Aolynk
+voice vlan oui-table add 0060b9 Philips_and_NEC_AG_phone
+voice vlan oui-table add 00d01e Pingtel_phone
+voice vlan oui-table add 00e075 Polycom/Veritel_phone
+voice vlan oui-table add 00e0bb 3Com_phone
+no lldp run
+bonjour interface range vlan 1
+hostname SW-MDF-14
+username admin password encrypted $15$NsMfTYon2P9Jz/5Q$bK5I+Q6R9J+GaQ4n/zKjLHZU0ZIL4eVdXm8pSVTUoxQvdlRw0LqNXKo18A347AlOD25/9WhbzuTSG8e6W3fAqA== privilege 15
+ip ssh server
+ip telnet server
+!
+interface vlan 140
+ name BB_SW
+ ip address 192.168.140.14 255.255.255.0
+!
+interface GigabitEthernet1
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet2
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet3
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet4
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet5
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet6
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet7
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet8
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet9
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet10
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet11
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet12
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet13
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet14
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet15
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet16
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet17
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet18
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet19
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet20
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet21
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet22
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet23
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet24
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet25
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet26
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet27
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet28
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet29
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet30
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet31
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet32
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet33
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet34
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet35
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet36
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet37
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet38
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet39
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet40
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet41
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet42
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet43
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet44
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet45
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet46
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet47
+ no spanning-tree portfast
+ switchport access vlan 141
+ no macro auto smartport
+!
+interface GigabitEthernet48
+ no spanning-tree portfast
+ switchport mode trunk
+ switchport trunk native vlan 140
+ no macro auto smartport
+!
+exit
+ip default-gateway 192.168.140.254
+SW-MDF-14#
